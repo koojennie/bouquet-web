@@ -57,7 +57,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                         <div class="header-right">
                             <a href="cart.php" class="header-btn header-cart">
                                 <i class="uil uil-shopping-bag"></i>
-                                <span class="cart-number">0</span>
+                                <span id="cart-item" class="cart-number">0</span>
                             </a>
                             <a href="profile.php" class="header-btn">
                                 <i class="uil uil-user-md"></i>
@@ -72,6 +72,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
 
     <div id="viewport">
         <div id="js-scroll-content">
+            
             <section class="main-banner" id="home">
                 <div class="js-parallax-scene">
                     <div class="banner-shape-1 w-100" data-depth="0.30">
@@ -180,32 +181,39 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                         </div>
                         <div class="menu-list-row">
                             <div class="row g-xxl-5 bydefault_show" id="menu-dish">
+                                <?php
+                                    include 'koneksi.php';
+                                    $stmt = $conn->prepare('SELECT * FROM tb_produk');
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+                                    while ($row = $result->fetch_assoc()):
+                                ?>
                                 <!-- untuk bunga ke-1 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp wedding" data-cat="wedding" data-name="Pink Skies">
+                                <div class="col-lg-4 col-sm-6 dish-box-wp <?= $row['bouquet_category'] ?>" data-cat="<?= $row['bouquet_category'] ?>" data-name="<?= $row['bouquet_name'] ?>">
                                     <div class="dish-box text-center">
                                         <div class="dist-img">
-                                            <img src="assets/images/flowers/wedding-bouquet1.png" alt="">
+                                            <img src="assets/images/flowers/<?= $row['bouquet_image'] ?>" alt="">
                                         </div>
                                         <div class="dish-rating">
-                                            4.9
+                                            <?= $row['bouquet_ratings'] ?>
                                             <i class="uil uil-star"></i>
                                         </div>
                                         <div class="dish-title">
-                                            <h3 class="h3-title">Pink Skies</h3>
-                                            <p>Pink roses symbolize unconditional happiness.</p>
+                                            <h3 class="h3-title"><?= $row['bouquet_name'] ?></h3>
+                                            <p><?= $row['bouquet_description'] ?></p>
                                         </div>
                                         <div class="dish-info">
                                             <ul>
                                                 <li>
                                                     <p>Type</p>
-                                                    <b>Pink Roses</b>
+                                                    <b><?= $row['bouquet_type'] ?></b>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="dist-bottom-row">
                                             <ul>
                                                 <li>
-                                                    <b>Rp. 729.000</b>
+                                                    <b>Rp <?= number_format($row['bouquet_price']) ?></b>
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
@@ -216,301 +224,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- untuk bunga ke-2 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp wedding" data-cat="wedding" data-name="Summer Sea">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/wedding-bouquet2.png" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            5
-                                            <i class="uil uil-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title">Summer Sea</h3>
-                                            <p>All the colors give the feeling of joy and excitement</p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b>Many Flowers</b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp 800.000</b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- untuk bunga ke-3 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp wedding" data-cat="wedding" data-name="Spring Blossom">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/wedding-bouquet3.png" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            4.8
-                                            <i class="uil uil-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title">Spring Blossom</h3>
-                                            <p>It symbolize purity, elegance, and new beginnings.</p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b>Sunflowers, Pink Roses</b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp 750.000</b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- untuk bunga ke-4 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp graduation" data-cat="graduation" data-name="Secret Garden">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/graduation-bouquet4.png" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            4.9
-                                            <i class="uil uil-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title">Secret Garden</h3>
-                                            <p>It symbolize a new journey to release our beautiful youth.</p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b>Many Flowers</b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp 600.000</b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- untuk bunga ke-5 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp graduation" data-cat="graduation" data-name="Blue Moon">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/graduation-bouquet5.png" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            4.8
-                                            <i class="uil uil-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title">Blue Moon</h3>
-                                            <p>The calming hue evokes a sense of relaxation.</p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b>Gentiana Trifloras</b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp 500.000</b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- untuk bunga ke-6 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp graduation" data-cat="graduation" data-name="Hydrangea Love">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/graduation-bouquet6.png" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            5
-                                            <i class="uil uil-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title">Hydrangea Love</h3>
-                                            <p>Associated with heartfelt emotions and gratitude.</p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b>Hydrangeas</b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp 700.000</b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- untuk bunga ke-7 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp birthday" data-cat="birthday" data-name="Valley of Lilies">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/birthday-bouquet7.png" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            5
-                                            <i class="uil uil-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title">Valley of Lilies</h3>
-                                            <p>Expressing sincere emotions & life's significant moments</p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b>White Lilies, White Roses</b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp 810.000</b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- untuk bunga ke-8 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp birthday" data-cat="birthday" data-name="La Vie En Rose">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/birthday-bouquet8.png" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            4.9
-                                            <i class="uil uil-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title">La Vie En Rose</h3>
-                                            <p>Are the quintessential symbol of love and passion.</p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b>Red Roses</b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp 850.000</b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- untuk bunga ke-9 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp birthday" data-cat="birthday" data-name="In Bloom">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/birthday-bouquet9.png" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            4.8
-                                            <i class="uil uil-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title">In Bloom</h3>
-                                            <p>Exudes an ethereal charm and understated elegance.</p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b>Gypsophilas</b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp 775.000</b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endwhile; ?>
 
                             </div>
                         </div>
@@ -787,6 +501,16 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <script src="assets/js/smooth-scroll.js"></script>
     <!-- custom js  -->
     <script src="main.js"></script>
+
+    <!-- js library tanpa diubah, dari CDN -->
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
