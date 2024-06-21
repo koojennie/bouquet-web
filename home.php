@@ -211,16 +211,34 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                             </ul>
                                         </div>
                                         <div class="dist-bottom-row">
-                                            <ul>
-                                                <li>
-                                                    <b>Rp <?= number_format($row['bouquet_price']) ?></b>
-                                                </li>
-                                                <li>
-                                                    <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
+                                            <form action="" class="form-submit">
+                                    
+                                                <ul>
+                                                    <li>
+                                                        <b>Rp <?= number_format($row['bouquet_price']) ?></b>
+                                                    </li>
+                                                    <li>
+                                                        <button class="dish-add-btn addItemBtn">
+                                                            <i class="uil uil-plus"></i>
+                                                        </button>
+                                                    </li>
+                                                </ul>
+
+                                                <div class="row p-2">
+                                                <div class="col-md-6 py-1 pl-4">
+                                                    <b>Quantity : </b>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="number" class="form-control pqty" value="<?= $row['product_qty'] ?>">
+                                                </div>
+                                                </div>
+                                                <input type="hidden" class="pid" value="<?= $row['id'] ?>">
+                                                <input type="hidden" class="pname" value="<?= $row['product_name'] ?>">
+                                                <input type="hidden" class="pprice" value="<?= $row['product_price'] ?>">
+                                                <input type="hidden" class="pimage" value="<?= $row['product_image'] ?>">
+                                                <input type="hidden" class="pcode" value="<?= $row['product_code'] ?>">
+
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -462,10 +480,6 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
         </div>
     </div>
 
-
-
-
-
     <!-- jquery  -->
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <!-- bootstrap -->
@@ -511,6 +525,58 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            // Send product details in the server
+            $(".addItemBtn").click(function(e) {
+            e.preventDefault();
+            var $form = $(this).closest(".form-submit");
+            var pid = $form.find(".pid").val();
+            var pname = $form.find(".pname").val();
+            var pprice = $form.find(".pprice").val();
+            var pimage = $form.find(".pimage").val();
+            var pcode = $form.find(".pcode").val();
+
+            var pqty = $form.find(".pqty").val();
+
+            $.ajax({
+                url: 'action.php',
+                method: 'post',
+                data: {
+                pid: pid,
+                pname: pname,
+                pprice: pprice,
+                pqty: pqty,
+                pimage: pimage,
+                pcode: pcode
+                },
+                success: function(response) {
+                $("#message").html(response);
+                window.scrollTo(0, 0);
+                load_cart_item_number();
+                }
+            });
+            });
+
+            // Load total no.of items added in the cart and display in the navbar
+            load_cart_item_number();
+
+            function load_cart_item_number() {
+            $.ajax({
+                url: 'action.php',
+                method: 'get',
+                data: {
+                cartItem: "cart_item"
+                },
+                success: function(response) {
+                $("#cart-item").html(response);
+                }
+            });
+            }
+        });
+    </script>
 
 </body>
 
