@@ -229,14 +229,14 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                                     <b>Quantity : </b>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control pqty" value="<?= $row['product_qty'] ?>">
+                                                    <input type="number" class="form-control pqty" value="<?= $row['bouquet_qty'] ?>">
                                                 </div>
                                                 </div>
-                                                <input type="hidden" class="pid" value="<?= $row['id'] ?>">
-                                                <input type="hidden" class="pname" value="<?= $row['product_name'] ?>">
-                                                <input type="hidden" class="pprice" value="<?= $row['product_price'] ?>">
-                                                <input type="hidden" class="pimage" value="<?= $row['product_image'] ?>">
-                                                <input type="hidden" class="pcode" value="<?= $row['product_code'] ?>">
+                                                <input type="hidden" class="pid" value="<?= $row['bouquet_id'] ?>">
+                                                <input type="hidden" class="pname" value="<?= $row['bouquet_name'] ?>">
+                                                <input type="hidden" class="pprice" value="<?= $row['bouquet_price'] ?>">
+                                                <input type="hidden" class="pimage" value="<?= $row['bouquet_image'] ?>">
+                                                <input type="hidden" class="pcode" value="<?= $row['bouquet_code'] ?>">
 
                                             </form>
                                         </div>
@@ -419,64 +419,6 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                     </div>
                 </div>
             </footer> 
-            
-            <!-- Pop-up Modal -->
-            <div id="popupModal" class="modal">
-                <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2>Welcome to Bloom & Bliss!</h2>
-                <p>Please login to continue.</p>
-                <div class="modal-buttons">
-                    <button id="loginBtn">Login</button>
-                    <button id="cancelBtn">Cancel</button>
-                </div>
-                </div>
-            </div>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                var modal = document.getElementById('popupModal');
-                var cartIcon = document.querySelector('.header-cart'); // Adjusted selector to match the cart icon
-                var addBtn = document.querySelectorAll('.dish-add-btn');
-                var closeBtn = document.querySelector('.close-btn');
-                var cancelBtn = document.getElementById('cancelBtn');
-                var loginBtn = document.getElementById('loginBtn');
-
-                // Show the modal when cart icon is clicked
-                cartIcon.addEventListener('click', function() {
-                    modal.style.display = 'block';
-                });
-
-                addBtn.forEach(function(button)  {
-                    button.addEventListener('click', function() {
-                        window.scrollTo(0, 0)
-                        modal.style.display = 'block';
-                    });
-                });
-
-                // Hide the modal when the close button or cancel button is clicked
-                closeBtn.addEventListener('click', function() {
-                    modal.style.display = 'none';
-                });
-
-                cancelBtn.addEventListener('click', function() {
-                    modal.style.display = 'none';
-                });
-
-                // Redirect to login page when login button is clicked
-                loginBtn.addEventListener('click', function() {
-                    window.location.href = '/login_register.php';
-                });
-
-                // Hide the modal when clicking outside of the modal content
-                window.addEventListener('click', function(event) {
-                    if (event.target == modal) {
-                    modal.style.display = 'none';
-                    }
-                });
-                });
-            </script>
-
         </div>
     </div>
 
@@ -518,7 +460,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
 
     <!-- js library tanpa diubah, dari CDN -->
     <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
 
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
