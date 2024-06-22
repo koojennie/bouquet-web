@@ -1,9 +1,19 @@
+<?php 
+// cek ada session nya gak pake id_user sama username user
+session_start();
+
+if(!isset($_SESSION['usn_user']) == 'admin'){
+    header("location: ../login_register.php");
+    exit();
+} 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
+    <title>Bouquet Admin</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="../assets/admin/img/kaiadmin/favicon.ico" type="image/x-icon" />
 
@@ -70,16 +80,23 @@
                             $page = end($link_array);
                         ?>
                         <li class="nav-item <?= $page == 'index.php' ? 'active' : '' ?>">
-                            <a href="#dashboard" class="collapsed" >
+                            <a href="index.php" class="collapsed" >
                                 <i class="fas fa-home"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= $page == 'katalog.php' ? 'active' : '' ?>">
-                            <a  href="katalog.php">
+                        <li class="nav-item <?= $page == 'produk.php' ? 'active' : '' ?>">
+                            <a  href="produk.php">
                                 <i class="fas fa-layer-group"></i>
-                                <p>Katalog</p>
+                                <p>Produk</p>
                             </a>
+                        </li>
+                        <li class="nav-item <?= $page == 'order.php' ? 'active' : '' ?>">
+                            <a  href="order.php">
+                                <i class="fas fa-layer-group"></i>
+                                <p>Order</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

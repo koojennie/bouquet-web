@@ -45,7 +45,9 @@
 
     <script>
         $(document).ready(function () {
-            $("#katalog-datatables").DataTable({});
+            $("#katalog-datatables").DataTable({
+                columnDefs: [{ width: '10%', targets: 0 }]
+            });
         });
     </script>
 </body>

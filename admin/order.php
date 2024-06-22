@@ -7,7 +7,7 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
-                <h3 class="fw-bold mb-3">Katalog</h3>
+                <h3 class="fw-bold mb-3">Order</h3>
                 <h6 class="op-7 mb-2">Free Bootstrap 5 Admin Dashboard</h6>
             </div>
         </div>
@@ -16,7 +16,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Katalog</h4>
+                        <h4 class="card-title">Table Order</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
