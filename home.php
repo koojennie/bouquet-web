@@ -496,7 +496,6 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                 },
                 success: function(response) {
                 $("#message").html(response);
-                window.scrollTo(0, 0);
                 load_cart_item_number();
                 }
             });

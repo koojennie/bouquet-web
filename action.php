@@ -51,7 +51,7 @@
 	  $id = $_GET['remove'];
 
 	  $stmt = $conn->prepare('DELETE FROM cart WHERE cart_id=?');
-	  $stmt->bind_param('i',$cart_id);
+	  $stmt->bind_param('i',$id);
 	  $stmt->execute();
 
 	  $_SESSION['showAlert'] = 'block';
@@ -69,8 +69,8 @@
 	}
 
 	// Set total price of the product in the cart table
-	if (isset($_POST['bouquet_qty'])) {
-	  $qty = $_POST['bouquet_qty'];
+	if (isset($_POST['qty'])) {
+	  $qty = $_POST['qty'];
 	  $pid = $_POST['pid'];
 	  $pprice = $_POST['pprice'];
 
