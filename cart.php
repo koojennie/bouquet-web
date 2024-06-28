@@ -1,6 +1,6 @@
 <!-- halaman tabel cart -->
 <?php
-  session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -64,84 +64,95 @@
         </div>
     </div>
     <div class="row">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div style="display:<?php if (isset($_SESSION['showAlert'])) {
-          echo $_SESSION['showAlert'];
-        } else {
-          echo 'none';
-        }
-        unset($_SESSION['showAlert']); ?>" class="alert alert-success alert-dismissible mt-3">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong><?php if (isset($_SESSION['message'])) {
-            echo $_SESSION['message'];
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div style="display:<?php if (isset($_SESSION['showAlert'])) {
+            echo $_SESSION['showAlert'];
+          } else {
+            echo 'none';
           }
-          unset($_SESSION['showAlert']); ?></strong>
-        </div>
-        <h4 class="text-h4 text-center text-info m-0">Products in your cart!</h4>
-        <div class="table-responsive mt-2">
-          <table class="table table-bordered table-striped text-center">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total Price</th>
-                <th>
-                  <a href="action.php?clear=all" class="badge-danger badge p-1"
-                    onclick="return confirm('Are you sure want to clear your cart?');"><i class="fa-solid fa-trash-list"></i>&nbsp;&nbsp;Clear Cart</a>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              require 'koneksi.php';
-              $stmt = $conn->prepare('SELECT * FROM cart');
-              $stmt->execute();
-              $result = $stmt->get_result();
-              $grand_total = 0;
-              while ($row = $result->fetch_assoc()):
-                ?>
+          unset($_SESSION['showAlert']); ?>" class="alert alert-success alert-dismissible mt-3">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong><?php if (isset($_SESSION['message'])) {
+              echo $_SESSION['message'];
+            }
+            unset($_SESSION['showAlert']); ?></strong>
+          </div>
+          <h4 class="text-h4 text-center text-info m-0">Products in your cart!</h4>
+          <div class="table-responsive mt-2">
+            <table class="table table-bordered table-striped text-center">
+              <thead>
                 <tr>
-                  <td><?= $row['cart_id'] ?></td>
-                  <input type="hidden" class="pid" value="<?= $row['cart_id'] ?>">
-                  <td><img src="assets/images/flowers/<?= $row['bouquet_image'] ?>" width="50"></td>
-                  <td><?= $row['bouquet_name'] ?></td>
-                  <td>
-                    <i class="fa-light fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($row['bouquet_price']); ?>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total Price</th>
+                  <th>
+                    <a href="action.php?clear=all" class="badge-danger badge p-1"
+                      onclick="return confirm('Are you sure want to clear your cart?');"><i
+                        class="fa-solid fa-trash-list"></i>&nbsp;&nbsp;Clear Cart</a>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                require 'koneksi.php';
+                $query = 'SELECT cart.*, tb_produk.bouquet_name, tb_produk.bouquet_price, tb_produk.bouquet_image
+                          FROM cart
+                          INNER JOIN tb_produk
+                          ON cart.bouquet_id = tb_produk.bouquet_id';  // Ensure this is the correct column name in tb_produk table
+                
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $grand_total = 0;
+                while ($row = $result->fetch_assoc()):
+
+                  // var_dump($row);
+                  // die;
+                  ?>
+                  <tr>
+                    <td><?= $row['cart_id'] ?></td>
+                    <input type="hidden" class="pidc" value="<?= $row['cart_id'] ?>">
+                    <td><img src="assets/images/flowers/<?= $row['bouquet_image'] ?>" width="50"></td>
+                    <td><?= $row['bouquet_name'] ?></td>
+                    <td>
+                      <i class="fa-light fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($row['bouquet_price']); ?>
+                    </td>
+                    <input type="hidden" class="pprice" value="<?= $row['bouquet_price'] ?>">
+                    <td>
+                      <input type="number" class="form-control itemQty" value="<?= $row['bouquet_qty'] ?>"
+                        style="width:75px;">
+                    </td>
+                    <td><i class="fa-light fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($row['total_price']); ?></td>
+                    <td>
+                      <a href="action.php?remove=<?= $row['cart_id'] ?>" class="text-danger lead"
+                        onclick="return confirm('Are you sure want to remove this item?');"><i
+                          class="fa-regular fa-trash"></i></a>
+                    </td>
+                  </tr>
+                  <?php $grand_total += $row['total_price']; ?>
+                <?php endwhile; ?>
+                <tr>
+                  <td colspan="3">
+                    <a href="home.php" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Continue
+                      Shopping</a>
                   </td>
-                  <input type="hidden" class="pprice" value="<?= $row['bouquet_price'] ?>">
-                  <td>
-                    <input type="number" class="form-control itemQty" value="<?= $row['bouquet_qty'] ?>"
-                      style="width:75px;">
+                  <td colspan="2"><b>Grand Total</b></td>
+                  <td><b><i class="fa-solid fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($grand_total, 2); ?></b>
                   </td>
-                  <td><i class="fa-light fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($row['total_price']); ?></td>
                   <td>
-                    <a href="action.php?remove=<?= $row['cart_id'] ?>" class="text-danger lead"
-                      onclick="return confirm('Are you sure want to remove this item?');"><i
-                        class="fa-regular fa-trash"></i></a>
+                    <a href="checkout.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i
+                        class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Checkout</a>
                   </td>
                 </tr>
-                <?php $grand_total += $row['total_price']; ?>
-              <?php endwhile; ?>
-              <tr>
-                <td colspan="3">
-                  <a href="home.php" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Continue
-                    Shopping</a>
-                </td>
-                <td colspan="2"><b>Grand Total</b></td>
-                <td><b><i class="fa-solid fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($grand_total, 2); ?></b></td>
-                <td>
-                  <a href="checkout.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Checkout</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
   </header>
@@ -159,7 +170,7 @@
       $(".itemQty").on('change', function () {
         var $el = $(this).closest('tr');
 
-        var pid = $el.find(".pid").val();
+        var pidc = $el.find(".pidc").val();
         var pprice = $el.find(".pprice").val();
         var qty = $el.find(".itemQty").val();
         location.reload(true);
@@ -169,7 +180,7 @@
           cache: false,
           data: {
             qty: qty,
-            pid: pid,
+            pidc: pidc,
             pprice: pprice
           },
           success: function (response) {
