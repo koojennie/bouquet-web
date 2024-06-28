@@ -1,5 +1,5 @@
 #### made with 💙
-##### username
+
 ##### admin
 email: admin@gmail.com
 password: iniadmin
