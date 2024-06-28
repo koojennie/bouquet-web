@@ -33,6 +33,8 @@ function register($username, $name, $email, $notelp, $password) {
 function login($email, $password) {
     global $conn;
     $email = mysqli_real_escape_string($conn, $email);
+
+    // Cek di tabel tb_user
     $query = "SELECT * FROM tb_user WHERE email_user='$email'";
     $result = mysqli_query($conn, $query);
 
@@ -42,6 +44,18 @@ function login($email, $password) {
             return $user;
         }
     }
+
+    // Jika tidak ditemukan di tabel tb_user, cek di tabel tb_admin
+    $query = "SELECT * FROM tb_admin WHERE email_admin='$email'";
+    $result = mysqli_query($conn, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $admin = mysqli_fetch_assoc($result);
+        if (password_verify($password, $admin['pw_admin'])) {
+            return $admin;
+        }
+    }
+
     return false;
 }
 

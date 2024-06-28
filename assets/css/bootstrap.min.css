@@ -1765,27 +1765,23 @@ progress {
     margin-bottom: 1rem;
     color: #212529;
     vertical-align: top;
-    border-color: #dee2e6
+    border-color: #dee2e6;
+    background-color: #ffffff;
 }
 
 .table>:not(caption)>*>* {
     padding: .5rem .5rem;
-    background-color: #ffffff;
     border-bottom-width: 1px;
-    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg)
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
 
 .table>tbody {
-    vertical-align: inherit
-}
-
-table thead tr {
-    background-color: #E1AFD1 !important;
-    color: #ffffff !important;
+    vertical-align: inherit;
 }
 
 .table>thead {
-    vertical-align: bottom
+    vertical-align: bottom;
+    background-color: #E1AFD1;
 }
 
 .table>:not(:last-child)>:last-child>* {
@@ -4990,7 +4986,7 @@ fieldset:disabled .btn {
 }
 
 .badge-danger {
-    color: #ffffff;
+    color: #0d0d25;
 }
 
 .badge-danger:hover {

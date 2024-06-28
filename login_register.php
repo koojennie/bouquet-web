@@ -1,5 +1,4 @@
 <?php
-
 include 'functions.php';
 session_start();
 
@@ -9,15 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password'];
         $user = login($email, $password);
         if ($user) {
-            // session nya ganti pake id user sama username biar unik
-            $_SESSION['id_user'] = $user['id_user'];
-            $_SESSION['usn_user'] = $user['usn_user'];
+            // Cek apakah user berasal dari tabel admin atau user
+            if (isset($user['id_admin'])) {
+                // Jika dari tabel admin, gunakan id_admin dan email_admin
+                $_SESSION['id_user'] = $user['id_admin'];
+                $_SESSION['usn_user'] = 'admin';
 
-            // cek jika user admin
-            if($user['usn_user'] == 'admin' & $user['nama_user'] == 'admin') {
-                header("Location:admin/index.php");
+                header("Location: admin/index.php");
                 exit();
             } else {
+                // Jika dari tabel user, gunakan id_user dan usn_user
+                $_SESSION['id_user'] = $user['id_user'];
+                $_SESSION['usn_user'] = $user['usn_user'];
+
                 header("Location: home.php");
                 exit();
             }
