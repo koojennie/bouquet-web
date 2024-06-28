@@ -6,7 +6,7 @@ session_start();
 if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     header("Location: login_register.php");
     exit();
-}?>
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,16 +59,20 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                 <span id="cart-item" class="cart-number">0</span>
                             </a>
                             <li>
-                                <img src ="assets/images/user.png" width="45" height="45" class="profile">
+                                <img src="assets/images/user.png" width="45" height="45" class="profile">
                                 <ul>
                                     <!-- untuk dropdown profile menu -->
                                     <li class="sub-item">
                                         <i class="fa-solid fa-user-gear"></i>
-                                        <a href="login_register.php"><p>Switch Account</p></a>
+                                        <a href="login_register.php">
+                                            <p>Switch Account</p>
+                                        </a>
                                     </li>
                                     <li class="sub-item">
                                         <i class="fa-solid fa-right-from-bracket"></i>
-                                        <a href="logout.php"><p>Logout</p></a>
+                                        <a href="logout.php">
+                                            <p>Logout</p>
+                                        </a>
                                     </li>
                                 </ul>
                             </li>
@@ -82,7 +86,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
 
     <div id="viewport">
         <div id="js-scroll-content">
-            
+
             <section class="main-banner" id="home">
                 <div class="js-parallax-scene">
                     <div class="banner-shape-1 w-100" data-depth="0.30">
@@ -102,7 +106,9 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                         <span>Flower Bouquet</span>
                                         shop.
                                     </h1>
-                                    <p>Discover the enchanting elegance of our floral creations with a special prices at our bouquet shop, where every arrangement is a masterpiece designed to bring beauty and joy to your cherished moments.</p>
+                                    <p>Discover the enchanting elegance of our floral creations with a special prices at
+                                        our bouquet shop, where every arrangement is a masterpiece designed to bring
+                                        beauty and joy to your cherished moments.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -112,16 +118,18 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                 </div>
                                 <div class="banner-img-text mt-4 m-auto">
                                     <h5 class="h5-title"><i>Bouquet.</i></h5>
-                                    <p>delicately arranged and bursting with vibrant hues, whispers the silent poetry of nature's splendor, capturing the essence of fleeting beauty and timeless grace.</p>
+                                    <p>delicately arranged and bursting with vibrant hues, whispers the silent poetry of
+                                        nature's splendor, capturing the essence of fleeting beauty and timeless grace.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-                              
-            <section style="background-image: url(assets/images/about-us-back.png);"
-            class="about-sec section" id="about">
+
+            <section style="background-image: url(assets/images/about-us-back.png);" class="about-sec section"
+                id="about">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -131,10 +139,12 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                 <div class="sec-title-shape mb-4">
                                     <img src="assets/images/title-shape.svg" alt="">
                                 </div>
-                                <p>Bloom & Bliss was established in 2020. specializes in crafting beautiful bouquets 
-                                    of real flowers to celebrate everyones happy moments. From seasonal arrangements, 
-                                    cup flowers, hand bouquets, table centerpieces, standing flowers to full event decorations 
-                                    – our dedicated team is here to meet all your floral needs. Send the finest flower bouquet to 
+                                <p>Bloom & Bliss was established in 2020. specializes in crafting beautiful bouquets
+                                    of real flowers to celebrate everyones happy moments. From seasonal arrangements,
+                                    cup flowers, hand bouquets, table centerpieces, standing flowers to full event
+                                    decorations
+                                    – our dedicated team is here to meet all your floral needs. Send the finest flower
+                                    bouquet to
                                     your loved ones today with Bloom & Bliss!
                                     Same-day delivery available for all orders placed before the cut-off time.</p>
                             </div>
@@ -144,7 +154,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                         <div class="col-lg-8 m-auto">
                             <div class="about-video">
                                 <div class="about-video-img" style="background-image: url(assets/images/about.jpeg);">
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -192,66 +202,69 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                         <div class="menu-list-row">
                             <div class="row g-xxl-5 bydefault_show" id="menu-dish">
                                 <?php
-                                    include 'koneksi.php';
-                                    $stmt = $conn->prepare('SELECT * FROM tb_produk');
-                                    $stmt->execute();
-                                    $result = $stmt->get_result();
-                                    while ($row = $result->fetch_assoc()):
-                                ?>
-                                <!-- untuk bunga ke-1 -->
-                                <div class="col-lg-4 col-sm-6 dish-box-wp <?= $row['bouquet_category'] ?>" data-cat="<?= $row['bouquet_category'] ?>" data-name="<?= $row['bouquet_name'] ?>">
-                                    <div class="dish-box text-center">
-                                        <div class="dist-img">
-                                            <img src="assets/images/flowers/<?= $row['bouquet_image'] ?>" alt="">
-                                        </div>
-                                        <div class="dish-rating">
-                                            <?= $row['bouquet_ratings'] ?>
-                                            <i class="fa-regular fa-star"></i>
-                                        </div>
-                                        <div class="dish-title">
-                                            <h3 class="h3-title"><?= $row['bouquet_name'] ?></h3>
-                                            <p><?= $row['bouquet_description'] ?></p>
-                                        </div>
-                                        <div class="dish-info">
-                                            <ul>
-                                                <li>
-                                                    <p>Type</p>
-                                                    <b><?= $row['bouquet_type'] ?></b>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="dist-bottom-row">
-                                            <form action="" class="form-submit">
-                                    
+                                include 'koneksi.php';
+                                $stmt = $conn->prepare('SELECT * FROM tb_produk');
+                                $stmt->execute();
+                                $result = $stmt->get_result();
+                                while ($row = $result->fetch_assoc()):
+                                    ?>
+                                    <!-- untuk bunga ke-1 -->
+                                    <div class="col-lg-4 col-sm-6 dish-box-wp <?= $row['bouquet_category'] ?>"
+                                        data-cat="<?= $row['bouquet_category'] ?>" data-name="<?= $row['bouquet_name'] ?>">
+                                        <div class="dish-box text-center">
+                                            <div class="dist-img">
+                                                <img src="assets/images/flowers/<?= $row['bouquet_image'] ?>" alt="">
+                                            </div>
+                                            <div class="dish-rating">
+                                                <?= $row['bouquet_ratings'] ?>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                            <div class="dish-title">
+                                                <h3 class="h3-title"><?= $row['bouquet_name'] ?></h3>
+                                                <p><?= $row['bouquet_description'] ?></p>
+                                            </div>
+                                            <div class="dish-info">
                                                 <ul>
                                                     <li>
-                                                        <b>Rp <?= number_format($row['bouquet_price']) ?></b>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dish-add-btn addItemBtn">
-                                                            <i class="fa-regular fa-plus"></i>
-                                                        </button>
+                                                        <p>Type</p>
+                                                        <b><?= $row['bouquet_type'] ?></b>
                                                     </li>
                                                 </ul>
+                                            </div>
+                                            <div class="dist-bottom-row">
+                                                <form action="" class="form-submit">
 
-                                                <div class="row p-2 mt-3">
-                                                <div class="col-md-6 py-1 pl-4">
-                                                    <b>Quantity : </b>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="number" class="form-control pqty" value="1">
-                                                </div>
-                                                </div>
-                                                <input type="hidden" class="pid" value="<?= $row['bouquet_id'] ?>">
-                                                <input type="hidden" class="pname" value="<?= $row['bouquet_name'] ?>">
-                                                <input type="hidden" class="pprice" value="<?= $row['bouquet_price'] ?>">
-                                                <input type="hidden" class="pimage" value="<?= $row['bouquet_image'] ?>">
-                                                <input type="hidden" class="pcode" value="<?= $row['bouquet_code'] ?>">
+                                                    <ul>
+                                                        <li>
+                                                            <b>Rp <?= number_format($row['bouquet_price']) ?></b>
+                                                        </li>
+                                                        <li>
+                                                            <button class="dish-add-btn addItemBtn">
+                                                                <i class="fa-regular fa-plus"></i>
+                                                            </button>
+                                                        </li>
+                                                    </ul>
 
-                                            </form>
+                                                    <div class="row p-2 mt-3">
+                                                        <div class="col-md-6 py-1 pl-4">
+                                                            <b>Quantity : </b>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="number" class="form-control pqty" value="1">
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" class="pid" value="<?= $row['bouquet_id'] ?>">
+                                                    <input type="hidden" class="pname" value="<?= $row['bouquet_name'] ?>">
+                                                    <input type="hidden" class="pprice"
+                                                        value="<?= $row['bouquet_price'] ?>">
+                                                    <input type="hidden" class="pimage"
+                                                        value="<?= $row['bouquet_image'] ?>">
+                                                    <input type="hidden" class="pcode" value="<?= $row['bouquet_code'] ?>">
+
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 <?php endwhile; ?>
 
                             </div>
@@ -260,8 +273,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                 </div>
             </section>
 
-            <section style = "background-image: url(assets/images/blog-pattern-bg.png);"
-            class="testimonials section bg-pink" id="review">
+            <section style="background-image: url(assets/images/blog-pattern-bg.png);"
+                class="testimonials section bg-pink" id="review">
                 <div class="sec-wp">
                     <div class="container">
                         <div class="row">
@@ -297,7 +310,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                                 <h3 class="h3-title">
                                                     Kim Haeun
                                                 </h3>
-                                                <p>Bloom & Bliss offers a good variety of modern and affordable bouquets.</p>
+                                                <p>Bloom & Bliss offers a good variety of modern and affordable
+                                                    bouquets.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -318,7 +332,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                                 <h3 class="h3-title">
                                                     Nichols Jordan
                                                 </h3>
-                                                <p>It would be nice to see the final bouquet in delivery confirmation email.</p>
+                                                <p>It would be nice to see the final bouquet in delivery confirmation
+                                                    email.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -339,7 +354,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                                 <h3 class="h3-title">
                                                     Nara Asyah
                                                 </h3>
-                                                <p>Everything is perfect, easy, hassle-free, and beautiful bouquet! Very happy.</p>
+                                                <p>Everything is perfect, easy, hassle-free, and beautiful bouquet! Very
+                                                    happy.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -360,7 +376,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                                 <h3 class="h3-title">
                                                     Shen Yu Wi
                                                 </h3>
-                                                <p>The flowers were lovely, fresh and delivered on time with no hassle.</p>
+                                                <p>The flowers were lovely, fresh and delivered on time with no hassle.
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -380,11 +397,11 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                 <div class="footer-info">
                                     <div class="footer-logo">
                                         <a href="index.php">
-                                            <img src="logo.png" widhth="100"  height="100" alt="">
+                                            <img src="logo.png" widhth="100" height="100" alt="">
                                         </a>
                                     </div>
-                                    <p>Bloom & Bliss is here to cater to your floral needs, 
-                                        ensuring quick and easy flower delivery through our 
+                                    <p>Bloom & Bliss is here to cater to your floral needs,
+                                        ensuring quick and easy flower delivery through our
                                         network of partner florists in Jakarta.
                                     </p>
                                     <div class="social-icon">
@@ -428,7 +445,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                         </div>
                     </div>
                 </div>
-            </footer> 
+            </footer>
         </div>
     </div>
 
@@ -479,52 +496,53 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             // Send product details in the server
-            $(".addItemBtn").click(function(e) {
-            e.preventDefault();
-            var $form = $(this).closest(".form-submit");
-            var pid = $form.find(".pid").val();
-            var pname = $form.find(".pname").val();
-            var pprice = $form.find(".pprice").val();
-            var pimage = $form.find(".pimage").val();
-            var pcode = $form.find(".pcode").val();
+            $(".addItemBtn").click(function (e) {
+                e.preventDefault();
+                var $form = $(this).closest(".form-submit");
+                var pid = $form.find(".pid").val();
+                var pname = $form.find(".pname").val();
+                var pprice = $form.find(".pprice").val();
+                var pimage = $form.find(".pimage").val();
+                var pcode = $form.find(".pcode").val();
+                var pqty = $form.find(".pqty").val();
 
-            var pqty = $form.find(".pqty").val();
+                $.ajax({
+                    url: 'action.php',
+                    method: 'post',
+                    data: {
+                        pid: pid,
+                        pname: pname,
+                        pprice: pprice,
+                        pqty: pqty,
+                        pimage: pimage,
+                        pcode: pcode
+                    },
+                    success: function (response) {
+                        // alert("sudah diklik");
+                        console.log(response); // Log the response for debugging
+                        load_cart_item_number(); // Update the cart item number
+                    }
+                });
+            });
 
-            $.ajax({
-                url: 'action.php',
-                method: 'post',
-                data: {
-                pid: pid,
-                pname: pname,
-                pprice: pprice,
-                pqty: pqty,
-                pimage: pimage,
-                pcode: pcode
-                },
-                success: function(response) {
-                $("#message").html(response);
-                load_cart_item_number();
-                }
-            });
-            });
 
             // Load total no.of items added in the cart and display in the navbar
             load_cart_item_number();
 
             function load_cart_item_number() {
-            $.ajax({
-                url: 'action.php',
-                method: 'get',
-                data: {
-                cartItem: "cart_item"
-                },
-                success: function(response) {
-                $("#cart-item").html(response);
-                }
-            });
+                $.ajax({
+                    url: 'action.php',
+                    method: 'get',
+                    data: {
+                        cartItem: "cart_item"
+                    },
+                    success: function (response) {
+                        $("#cart-item").html(response);
+                    }
+                });
             }
         });
     </script>

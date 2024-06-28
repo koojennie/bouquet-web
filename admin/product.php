@@ -19,7 +19,6 @@
                         <h4 class="card-title">Product</h4>
                         <div class="d-flex justify-content-end">
                             <a href="addProductPage.php" class="btn btn-primary">Tambah Product</a>
-                            <button class="btn btn-secondary" onclick="window.print()">PRINT</button>
                         </div>
                     </div>
                     <div class="card-body">
