@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloom & Bliss</title>
-    <!-- for icons  -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- for icons (font awesome) -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
     <!-- bootstrap  -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- for swiper slider  -->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
     <!-- fancy box  -->
     <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
     <!-- custom css  -->
@@ -46,11 +48,11 @@
                         </nav>
                         <div class="header-right">
                             <a href="javascript:void(0)" class="header-btn header-cart">
-                                <i class="uil uil-shopping-bag"></i>
+                                <i class="fa-regular fa-cart-shopping"></i>
                                 <span class="cart-number">0</span>
                             </a>
                             <a href="login_register.php" class="header-btn">
-                                <i class="uil uil-user-md"></i>
+                                <i class="fa-regular fa-user"></i>
                             </a>
                         </div>
                     </div>
@@ -181,7 +183,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             4.9
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Pink Skies</h3>
@@ -202,7 +204,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -218,7 +220,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             5
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Summer Sea</h3>
@@ -239,7 +241,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -254,7 +256,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             4.8
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Spring Blossom</h3>
@@ -275,7 +277,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -291,7 +293,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             4.9
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Secret Garden</h3>
@@ -312,7 +314,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -328,7 +330,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             4.8
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Blue Moon</h3>
@@ -349,7 +351,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -365,7 +367,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             5
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Hydrangea Love</h3>
@@ -386,7 +388,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -402,7 +404,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             5
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Valley of Lilies</h3>
@@ -423,7 +425,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -439,7 +441,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             4.9
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">La Vie En Rose</h3>
@@ -460,7 +462,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -476,7 +478,7 @@
                                         </div>
                                         <div class="dish-rating">
                                             4.8
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">In Bloom</h3>
@@ -497,7 +499,7 @@
                                                 </li>
                                                 <li>
                                                     <button class="dish-add-btn">
-                                                        <i class="uil uil-plus"></i>
+                                                        <i class="fa-regular fa-plus"></i>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -642,17 +644,17 @@
                                         <ul>
                                             <li>
                                                 <a href="https://www.instagram.com/gunadarma">
-                                                    <i class="uil uil-instagram"></i>
+                                                    <i class="fa-brands fa-instagram"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="https://www.github.com/koojennie">
-                                                    <i class="uil uil-github-alt"></i>
+                                                    <i class="fa-brands fa-github"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="https://www.youtube.com/@ZB1_official">
-                                                    <i class="uil uil-youtube"></i>
+                                                    <i class="fa-brands fa-youtube"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -661,8 +663,8 @@
                                 <div class="footer-table-info">
                                     <h3 class="h3-title">Open Hours</h3>
                                     <ul>
-                                        <li><i class="uil uil-clock"></i> Mon-Fri : 9am - 22pm</li>
-                                        <li><i class="uil uil-clock"></i> Sat-Sun : 9am - 17pm</li>
+                                        <li><i class="fa-regular fa-clock"></i> Mon-Fri : 9am - 22pm</li>
+                                        <li><i class="fa-regular fa-clock"></i> Sat-Sun : 9am - 17pm</li>
                                     </ul>
                                 </div>
                                 <div class="footer-menu">
@@ -705,6 +707,7 @@
 
                 // Show the modal when cart icon is clicked
                 cartIcon.addEventListener('click', function() {
+                    window.scrollTo(0,0)
                     modal.style.display = 'block';
                 });
 
@@ -726,7 +729,7 @@
 
                 // Redirect to login page when login button is clicked
                 loginBtn.addEventListener('click', function() {
-                    window.location.href = '/login_register.php';
+                    window.location.href = 'login_register.php';
                 });
 
                 // Hide the modal when clicking outside of the modal content
@@ -741,9 +744,19 @@
         </div>
     </div>
 
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            <?php if (isset($_SESSION['logout_success'])): ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Logged out',
+                    text: 'You have successfully logged out.',
+                });
+                <?php unset($_SESSION['logout_success']); ?>
+            <?php endif; ?>
+        });
+    </script>
 
     <!-- jquery  -->
     <script src="assets/js/jquery-3.5.1.min.js"></script>

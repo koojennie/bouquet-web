@@ -1,4 +1,4 @@
-<!-- ini untuk user/admin setelah login diarahkan ke home.php tapi isi kodenya sama kaya index.html -->
+<!-- ini untuk user/admin setelah login diarahkan ke home.php tapi isi kodenya sama kaya index.php -->
 <?php
 session_start();
 
@@ -15,14 +15,13 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloom & Bliss</title>
-    <!-- for icons  -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Home - Bloom & Bliss</title>
+    <!-- for icons (font awesome) -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
     <!-- bootstrap  -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- for swiper slider  -->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
     <!-- fancy box  -->
     <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
     <!-- custom css  -->
@@ -37,7 +36,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header-logo">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="logo.png" width="50" height="50" alt="Logo">
                         </a>
                     </div>
@@ -56,12 +55,23 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                         </nav>
                         <div class="header-right">
                             <a href="cart.php" class="header-btn header-cart">
-                                <i class="uil uil-shopping-bag"></i>
+                                <i class="fa-regular fa-cart-shopping"></i>
                                 <span id="cart-item" class="cart-number">0</span>
                             </a>
-                            <a href="profile.php" class="header-btn">
-                                <i class="uil uil-user-md"></i>
-                            </a>
+                            <li>
+                                <img src ="assets/images/user.png" width="45" height="45" class="profile">
+                                <ul>
+                                    <!-- untuk dropdown profile menu -->
+                                    <li class="sub-item">
+                                        <i class="fa-solid fa-user-gear"></i>
+                                        <a href="login_register.php"><p>Switch Account</p></a>
+                                    </li>
+                                    <li class="sub-item">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        <a href="logout.php"><p>Logout</p></a>
+                                    </li>
+                                </ul>
+                            </li>
                         </div>
                     </div>
                 </div>
@@ -196,7 +206,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                         </div>
                                         <div class="dish-rating">
                                             <?= $row['bouquet_ratings'] ?>
-                                            <i class="uil uil-star"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title"><?= $row['bouquet_name'] ?></h3>
@@ -219,17 +229,17 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                                     </li>
                                                     <li>
                                                         <button class="dish-add-btn addItemBtn">
-                                                            <i class="uil uil-plus"></i>
+                                                            <i class="fa-regular fa-plus"></i>
                                                         </button>
                                                     </li>
                                                 </ul>
 
-                                                <div class="row p-2">
+                                                <div class="row p-2 mt-3">
                                                 <div class="col-md-6 py-1 pl-4">
                                                     <b>Quantity : </b>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control pqty" value="<?= $row['bouquet_qty'] ?>">
+                                                    <input type="number" class="form-control pqty" value="1">
                                                 </div>
                                                 </div>
                                                 <input type="hidden" class="pid" value="<?= $row['bouquet_id'] ?>">
@@ -369,7 +379,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                             <div class="footer-flex-box">
                                 <div class="footer-info">
                                     <div class="footer-logo">
-                                        <a href="index.html">
+                                        <a href="index.php">
                                             <img src="logo.png" widhth="100"  height="100" alt="">
                                         </a>
                                     </div>
@@ -381,17 +391,17 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                         <ul>
                                             <li>
                                                 <a href="https://www.instagram.com/gunadarma">
-                                                    <i class="uil uil-instagram"></i>
+                                                    <i class="fa-brands fa-instagram"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="https://www.github.com/koojennie">
-                                                    <i class="uil uil-github-alt"></i>
+                                                    <i class="fa-brands fa-github"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="https://www.youtube.com/@ZB1_official">
-                                                    <i class="uil uil-youtube"></i>
+                                                    <i class="fa-brands fa-youtube"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -400,8 +410,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                 <div class="footer-table-info">
                                     <h3 class="h3-title">Open Hours</h3>
                                     <ul>
-                                        <li><i class="uil uil-clock"></i> Mon-Fri : 9am - 22pm</li>
-                                        <li><i class="uil uil-clock"></i> Sat-Sun : 9am - 17pm</li>
+                                        <li><i class="fa-regular fa-clock"></i> Mon-Fri : 9am - 22pm</li>
+                                        <li><i class="fa-regular fa-clock"></i> Sat-Sun : 9am - 17pm</li>
                                     </ul>
                                 </div>
                                 <div class="footer-menu">

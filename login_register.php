@@ -51,13 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account - Bloom & Bliss</title>
-    <!-- for icons  -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- for icons (font awesome) -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
     <!-- bootstrap  -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- for swiper slider  -->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
     <!-- fancy box  -->
     <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
     <!-- custom css  -->
@@ -70,57 +69,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         body {
             background-image: url('assets/images/background-blur.jpg');
             background-size: cover; /* memastikan gambar memenuhi seluruh area */
-            padding-top : 70px;
         }
     </style>
-    <header class="site-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="header-logo">
-                        <a href="index.html">
-                            <img src="logo.png" width="50" height="50" alt="Logo">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-10">
-                    <div class="main-navigation">
-                        <button class="menu-toggle"><span></span><span></span></button>
-                        <nav class="header-menu">
-                            <ul class="menu food-nav-menu">
-                                <li><a href="index.html ">Home</a></li>
-                                <li><a href="/#about">About</a></li>
-                                <li><a href="/#catalouge">Catalouge</a></li>
-                                <li><a href="/#review">Review</a></li>
-                                <li><a href="/#contact">Contact</a></li>
-                            </ul>
-                        </nav>
-                        <div class="header-right">
-                            <a href="javascript:void(0)" class="header-btn header-cart">
-                                <i class="uil uil-shopping-bag"></i>
-                                <span class="cart-number">0</span>
-                            </a>
-                            <a href="login.html" class="header-btn">
-                                <i class="uil uil-user-md"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
 
     <div class="wrapper">
         <div class="form-box login">
             <h2>Login</h2>
             <form action="#" method="POST">
                 <div class="input-box">
-                    <span class="icon"><i class="uil uil-envelope"></i></span>
+                    <span class="icon"><i class="fa-regular fa-envelope"></i></span>
                     <input type="email" name="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class="uil uil-lock"></i></span>
+                    <span class="icon"><i class="fa-regular fa-lock"></i></span>
                     <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
@@ -135,27 +97,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Registration</h2>
             <form action="#" method="POST">
                 <div class="input-box">
-                    <span class="icon"><i class="uil uil-at"></i></span>
+                    <span class="icon"><i class="fa-regular fa-at"></i></span>
                     <input type="text" name="username" required>
                     <label>Username</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class="uil uil-user"></i></span>
+                    <span class="icon"><i class="fa-regular fa-user"></i></span>
                     <input type="text" name="name" required>
                     <label>Name</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class="uil uil-envelope"></i></span>
+                    <span class="icon"><i class="fa-regular fa-envelope"></i></span>
                     <input type="email" name="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class="uil uil-phone"></i></span>
+                    <span class="icon"><i class="fa-regular fa-phone"></i></span>
                     <input type="text" name="notelp" required>
                     <label>No Telepon</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class="uil uil-lock"></i></span>
+                    <span class="icon"><i class="fa-regular fa-lock"></i></span>
                     <input type="password" name="password" required>
                     <label>Password</label>
                 </div>

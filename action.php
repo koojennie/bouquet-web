@@ -105,7 +105,7 @@
 								<h4>Your Name : ' . $name . '</h4>
 								<h4>Your E-mail : ' . $email . '</h4>
 								<h4>Your Phone : ' . $phone . '</h4>
-								<h4>Total Amount Paid : ' . number_format($grand_total,2) . '</h4>
+								<h4>Total Amount Paid : ' . number_format($grand_total) . '</h4>
 								<h4>Payment Mode : ' . $pmode . '</h4>
 						  </div>';
 	  echo $data;

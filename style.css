@@ -49,6 +49,26 @@ img {
     backdrop-filter: blur(20px);
 }
 
+.site-header-cart {
+    /* position: fixed; */
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    transition: 0.5s;
+    border-bottom: 1px solid transparent;
+}
+
+.site-header-cart.sticky_head {
+    background: #f8e6e8 / 80%;
+    padding: 20px 0;
+    border-color: #f8e6e8;
+    backdrop-filter: blur(20px);
+}
+
 .main-navigation {
     display: flex;
     width: 100%;
@@ -131,9 +151,11 @@ ul {
     border-radius: 10px;
     position: relative;
     margin-left: 20px;
+    margin-right: 20px;
     transition: 0.3s;
     box-shadow: inset 6px 6px 7px #dadada, inset -6px -6px 7px #ffffff;
     align-items: center;
+    color: #fb6f92;
 }
 
 .cart-number {
@@ -152,9 +174,11 @@ ul {
     color: #fb6f92;
 }
 
+/* dropdown menu disini */
 .header-btn:hover {
     background: linear-gradient(145deg, #dcdcdc, #ffffff);
     box-shadow: 20px 20px 60px #cfcfd0, -20px -20px 60px #ffffff;
+    color: #ffaabf;
 }
 
 .for-des {
@@ -182,10 +206,6 @@ ul {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.uil {
-    color: #fb6f92;
 }
 
 @media screen and (min-width: 992px) {
@@ -256,6 +276,26 @@ ul {
         height: 100%;
     }
     .site-header .container .row .col-lg-2 {
+        width: auto;
+        padding: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 30px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+    .site-header-cart .container {
+        max-width: 100%;
+        padding: 0;
+        height: 100%;
+    }
+    .site-header-cart .container .row {
+        margin: 0;
+        height: 100%;
+    }
+    .site-header-cart .container .row .col-lg-2 {
         width: auto;
         padding: 0;
         height: 100%;
@@ -364,9 +404,24 @@ ul {
     .site-header.sticky_head, .site-header {
         background: rgb(255 255 255 / 90%);
     }
+    .site-header-cart {
+        padding: 20px 0;
+        box-shadow: 0px 10px 55px #d4d4d4;
+    }
+    .site-header-cart.sticky_head, .site-header-cart {
+        background: rgb(255 255 255 / 90%);
+    }
     body {
         height: auto !important;
     }
+}
+
+.fa-brands {
+    color: #fb6f92;
+}
+
+.fa-regular {
+    color: #fb6f92;
 }
 
 @media (max-width: 575px) {
@@ -1634,7 +1689,7 @@ p {
 
 .btn {
     width: 100%;
-    height: 45px;
+    height: 40px;
     background: #e23e67;
     border: none;
     outline: none;
@@ -1662,4 +1717,83 @@ p {
 .login-register p a:hover {
     text-decoration: underline;
 }
+
+/* untuk sub item */
+
+  .header-right li {
+    list-style: none;
+
+  }
+  
+  li ul {
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    align-items: flex-start;
+    transition: all 0.5s ease;
+    width: 12rem;
+    right: 3rem;
+    top: 5rem;
+    border-radius: 0.325rem;
+    gap: 0;
+    opacity: 0;
+    box-shadow: 0px 0px 100px rgba(20, 18, 18, 0.25);
+    display: none;
+  }
+  
+  div li:hover > ul,
+  div li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+  }
+  
+  .fa-solid:hover {
+    color: #0d0d25;
+    transform: scale(1.25) translateY(-4px);
+    cursor: pointer;
+  }
+    
+  .profile {
+    cursor: pointer;
+  }
+  
+  .sub-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.725rem;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+  }
+  
+  .sub-item:hover {
+    background-color: rgba(232, 232, 232, 0.4);
+  }
+  
+  .sub-item:hover .fa-solid {
+    color: #ffaabf;
+    transform: scale(1.08) translateY(-2px);
+    cursor: pointer;
+  }
+  
+  .sub-item:hover p {
+    color: #ffaabf;
+    cursor: pointer;
+  }
+  
+  .sub-item p {
+    font-size: 0.85rem;
+    color: #0d0d25;
+    font-weight: 500;
+    margin: 0.4rem 0;
+    flex: 1;
+  }
+
+  /* edit sedikit untuk tabel cart.php */
+  .text-h4 {
+    padding: 20px;
+  }
+
+
 
