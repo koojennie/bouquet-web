@@ -85,8 +85,8 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= $page == 'produk.php' ? 'active' : '' ?>">
-                            <a  href="produk.php">
+                        <li class="nav-item <?= $page == 'product.php' ? 'active' : '' ?>">
+                            <a  href="product.php">
                                 <i class="fas fa-layer-group"></i>
                                 <p>Produk</p>
                             </a>
@@ -95,6 +95,12 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
                             <a  href="order.php">
                                 <i class="fas fa-layer-group"></i>
                                 <p>Order</p>
+                            </a>
+                        </li>
+                        <li class="nav-item <?= $page == 'user.php' ? 'active' : '' ?>">
+                            <a href="user.php">
+                                <i class="fas fa-address-book"></i>
+                                <p>User</p>
                             </a>
                         </li>
                     </ul>
