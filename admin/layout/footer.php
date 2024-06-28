@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container-fluid d-flex justify-content-center">
         <div class="copyright">
-            2024 Develop by Developer <i class="fa fa-heart heart text-danger"></i> us
+            2024 Develop by Developer <i class="fa fa-heart heart text-danger"></i> Us
         </div>
     </div>
 </footer>
@@ -68,39 +68,81 @@
         }
 
         // tampilkan sweet alert untuk konfirmasi delete
+        // $(".delete-button").click(function (e) {
+        //     e.preventDefault();
+        //     const id = $(this).data('id');
+
+        //     swal({
+        //         title: "Apakah ada yakin ingin menghapus?",
+        //         icon: "warning",
+        //         buttons: true,
+        //         dangerMode: true,
+        //     })
+        //     .then((willDelete) => {
+        //         if (willDelete) {
+        //             $.ajax({
+        //                 // lakukan request dengan ajax
+        //                 url: "action/deleteProductAction.php",
+        //                 type: "POST",
+        //                 data: {id: id},
+        //                 success: function (response) {
+        //                     swal("Success! produk berhasil dihapus!", {
+        //                         icon: "success",
+        //                     }).then(() => {
+        //                         location.reload();
+        //                     });
+        //                 },
+        //                 error: function () {
+        //                     swal("Error!", "Error ketika menghapus data", "error");
+        //                 }
+        //             })
+        //         } else {
+        //             swal("Gagal dihapus");
+        //         }
+        //     })
+        // })
+
         $(".delete-button").click(function (e) {
             e.preventDefault();
             const id = $(this).data('id');
+            const type = $(this).data('type'); // menentukan tipe, bisa 'product' atau 'user'
 
             swal({
-                title: "Apakah ada yakin ingin menghapus?",
+                title: "Apakah Anda yakin ingin menghapus?",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
+                    let url = "";
+                    if (type === "product") {
+                        url = "action/deleteProductAction.php";
+                    } else if (type === "user") {
+                        url = "action/deleteUserAction.php";
+                    }
+
                     $.ajax({
                         // lakukan request dengan ajax
-                        url: "action/deleteProductAction.php",
+                        url: url,
                         type: "POST",
                         data: {id: id},
                         success: function (response) {
-                            swal("Succes! produk berhasil dihapus!", {
+                            swal(`Success! ${type} berhasil dihapus!`, {
                                 icon: "success",
                             }).then(() => {
                                 location.reload();
                             });
                         },
                         error: function () {
-                            swal("Error!", "error ketika menghapus data", "error");
+                            swal("Error!", `Error ketika menghapus ${type}`, "error");
                         }
-                    })
+                    });
                 } else {
-                    swal("Product gagal dihapus");
+                    swal("Gagal dihapus");
                 }
-            })
-        })
+            });
+        });
     });
 
 </script>

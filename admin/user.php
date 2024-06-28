@@ -44,8 +44,12 @@
                                             <td><?= $row['email_user'] ?></td>
                                             <td><?= $row['notelp_user'] ?></td>
                                             <td>
-                                                <a href="editUserPage.php?id=<?= $row['id_user'] ?>" class="btn btn-sm btn-warning btn-round"><i class="fas fa-edit" aria-hidden="true"></i></a>
-                                                <button class="btn btn-sm btn-danger btn-round delete-button"><i class="fa fa-trash"></i></button>
+                                                <a href="editUserPage.php?id=<?= $row['id_user'] ?>" 
+                                                    class="btn btn-sm btn-warning btn-round"><i class="fas fa-edit" 
+                                                        aria-hidden="true"></i></a>
+                                                <button class="btn btn-sm btn-danger btn-round delete-button"
+                                                    data-id="<?php echo $row['id_user']; ?>" data-type="user"><i 
+                                                        class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
 

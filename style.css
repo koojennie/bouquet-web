@@ -1750,7 +1750,6 @@ p {
   
   .fa-solid:hover {
     color: #0d0d25;
-    transform: scale(1.25) translateY(-4px);
     cursor: pointer;
   }
     

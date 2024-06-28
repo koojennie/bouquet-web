@@ -57,7 +57,7 @@
                                                     class="btn btn-sm btn-warning btn-round"><i class="fas fa-edit"
                                                         aria-hidden="true"></i></a>
                                                 <button class="btn btn-sm btn-danger btn-round delete-button"
-                                                    data-id="<?php echo $row['bouquet_id']; ?>"><i
+                                                    data-id="<?php echo $row['bouquet_id']; ?>" data-type="product"><i
                                                         class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
