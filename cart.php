@@ -1,6 +1,12 @@
 <!-- halaman tabel cart -->
 <?php
 session_start();
+// cek ada session nya gak pake id_user sama username user
+if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
+  header("Location: login_register.php");
+  exit();
+} ?>
+
 ?>
 
 <!DOCTYPE html>
@@ -100,12 +106,16 @@ session_start();
               <tbody>
                 <?php
                 require 'koneksi.php';
+                $sess_user_id = $_SESSION['id_user'];
+
                 $query = 'SELECT cart.*, tb_produk.bouquet_name, tb_produk.bouquet_price, tb_produk.bouquet_image
                           FROM cart
                           INNER JOIN tb_produk
-                          ON cart.bouquet_id = tb_produk.bouquet_id';  // Ensure this is the correct column name in tb_produk table
+                          ON cart.bouquet_id = tb_produk.bouquet_id
+                          WHERE cart.user_id = ?';  // Ensure this is the correct column name in tb_produk table
                 
                 $stmt = $conn->prepare($query);
+                $stmt->bind_param('i',$sess_user_id);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $grand_total = 0;
