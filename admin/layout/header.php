@@ -15,7 +15,7 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Bouquet Admin</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="../assets/admin/img/kaiadmin/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="../assets/admin/js/plugin/webfont/webfont.min.js"></script>
@@ -54,7 +54,7 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark">
                     <a href="index.php" class="logo">
-                        <img src="../assets/admin/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand"
+                        <img src="../assets/admin/img/kaiadmin/logo_bliss.svg" alt="navbar brand" class="navbar-brand"
                             height="20" />
                     </a>
                     <div class="nav-toggle">

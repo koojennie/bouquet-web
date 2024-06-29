@@ -53,6 +53,8 @@ $allItems = implode(', ', $items);
   <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
   <!-- custom css  -->
   <link rel="stylesheet" href="style.css">
+  <!-- favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
 </head>
 
 <body>
