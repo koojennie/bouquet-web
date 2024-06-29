@@ -104,6 +104,12 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
                                 <p>Order</p>
                             </a>
                         </li>
+                        <li class="nav-item <?= $page == 'report.php' ? 'active' : '' ?>">
+                            <a  href="report.php">
+                                <i class="fa-solid fa-file-invoice"></i>
+                                <p>Laporan</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -155,7 +161,7 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
                                 <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#"
                                     aria-expanded="false">
                                     <div class="avatar-sm">
-                                        <img src="../assets/admin/img/profile.jpg" alt="..."
+                                        <img src="../assets/admin/img/profile.png" alt="..."
                                             class="avatar-img rounded-circle" />
                                     </div>
                                     <span class="profile-username">
@@ -168,12 +174,12 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
                                         <li>
                                             <div class="user-box">
                                                 <div class="avatar-lg">
-                                                    <img src="../assets/admin/img/profile.jpg" alt="image profile"
-                                                        class="avatar-img rounded" />
+                                                    <img src="../assets/admin/img/profile.png" alt="image profile"
+                                                        class="avatar-img rounded-circle" />
                                                 </div>
                                                 <div class="u-text">
                                                     <h4>Admin</h4>
-                                                    <p class="text-muted">admin@example.com</p>
+                                                    <p class="text-muted">admin@gmail.com</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -181,7 +187,7 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">My Profile</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Logout</a>
+                                            <a class="dropdown-item" href="../logout.php">Logout</a>
                                         </li>
                                     </div>
                                 </ul>

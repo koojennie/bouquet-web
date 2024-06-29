@@ -66,8 +66,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                     <!-- untuk dropdown profile menu -->
                                     <li class="sub-item">
                                         <i class="fa-solid fa-user-gear"></i>
-                                        <a href="login_register.php">
-                                            <p>Switch Account</p>
+                                        <a href="profile.php">
+                                            <p>Edit profile</p>
                                         </a>
                                     </li>
                                     <li class="sub-item">

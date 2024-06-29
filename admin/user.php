@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Table User</h4>
+                        <h4 class="card-title">Tabel User</h4>
                         <div class="d-flex justify-content-end">
                             <a href="addUserPage.php" class="btn btn-primary">Tambah User</a>
                         </div>

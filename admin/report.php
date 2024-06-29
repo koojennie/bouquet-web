@@ -7,32 +7,27 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
-                <h3 class="fw-bold mb-3">Order</h3>
-                <h6 class="op-7 mb-2">Manajemen laporan Bloom & Bliss</h6>
+                <h3 class="fw-bold mb-3">Laporan Penjualan</h3>
+                <h6 class="op-7 mb-2">Manajemen order Bloom & Bliss</h6>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Tabel Order</h4>
+                        <h4 class="card-title">Tabel Laporan</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="katalog-datatables" class="display table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>Method Payment</th>
+                                        <th>Order Date</th>
+                                        <th>Product Code</th>
                                         <th>Product</th>
                                         <th>Quantity</th>
+                                        <th>Total Discount</th>
                                         <th>Total Price</th>
-                                        <th>Discount</th>
-                                        <th>Amount Paid</th>
-                                        <th>Order Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +46,6 @@
                                         <td><?= $row['pmode']?></td>
                                         <td><?= $row['products']?></td>
                                         <td><?= $row['amount_paid']?></td>
-                                        <td><?= $row['order_date']?></td>
                                     </tr>
 
                                     <?php

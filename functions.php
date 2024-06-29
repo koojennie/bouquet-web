@@ -59,4 +59,13 @@ function login($email, $password) {
     return false;
 }
 
+function getUserById($id) {
+    global $conn;
+    $query = "SELECT * FROM tb_user WHERE id_user = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
+}
+
 ?>

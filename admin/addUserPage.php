@@ -16,7 +16,7 @@ include ('layout/header.php');
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Add Product</div>
+                        <div class="card-title">Add User</div>
                     </div>
                     <div class="card-body">
                         <form action="action/insertUserAction.php" method="POST" enctype="multipart/form-data">
