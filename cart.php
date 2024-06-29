@@ -17,11 +17,12 @@ session_start();
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <!-- for swiper slider  -->
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
   <!-- fancy box  -->
   <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
   <!-- custom css  -->
   <link rel="stylesheet" href="style.css">
+  <!-- favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
 </head>
 
 <body>

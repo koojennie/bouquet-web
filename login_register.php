@@ -64,6 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
     <!-- custom css  -->
     <link rel="stylesheet" href="style.css">
+    <!-- favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
 </head>
 
 <body class="body-fixed">
