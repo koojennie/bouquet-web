@@ -97,13 +97,32 @@ if (isset($_POST['qty'])) {
 
 // Checkout and save customer info in the orders table
 if (isset($_POST['action']) && $_POST['action'] == 'order') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $products = $_POST['products'];
+    // $name = $_POST['name'];
+    // $email = $_POST['email'];
+    // $phone = $_POST['phone'];
+    // $products = $_POST['products'];
     $grand_total = $_POST['grand_total'];
     $address = $_POST['address'];
     $pmode = $_POST['pmode'];
+
+
+	$products = [];
+
+	foreach ($_POST as $key => $value) {
+        if (strpos($key, 'produk_id_') === 0) {
+            $bouquet_id = str_replace('produk_id_', '', $key);
+            $bouquet_qty_key = 'produk_qty_' . $bouquet_id;
+            if (isset($_POST[$bouquet_qty_key])) {
+                $products[] = [
+                    'bouquet_id' => $value,
+                    'bouquet_qty' => $_POST[$bouquet_qty_key]
+                ];
+            }
+        }
+    }
+
+	// var_dump($products);
+	// die;
 
     $data = '';
 
