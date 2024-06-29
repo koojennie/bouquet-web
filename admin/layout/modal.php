@@ -50,11 +50,6 @@
                 value="<?= number_format($row['bouquet_price']); ?>" disabled/>
             </div>
             <div class="form-group">
-              <label for="bouquetQuantity">Quantity</label>
-              <input type="number" class="form-control" id="bouquetQuantity" min="0" name="bouquet_qty"
-                value="<?= $row['bouquet_qty'] ?>" disabled/>
-            </div>
-            <div class="form-group">
               <label for="bouquetRatings">Ratings</label>
               <input type="number" class="form-control" id="bouquetRatings" step=".01" name="bouquet_ratings"
                 value="<?= $row['bouquet_ratings'] ?>" disabled/>

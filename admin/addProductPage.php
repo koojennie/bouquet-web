@@ -59,11 +59,6 @@ include ('layout/header.php');
                                             name="bouquet_price" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="bouquetQuantity">Quantity</label>
-                                        <input type="number" class="form-control" id="bouquetQuantity" min="0"
-                                           name="bouquet_qty" value="" />
-                                    </div>
-                                    <div class="form-group">
                                         <label for="bouquetRatings">Ratings</label>
                                         <input type="number" class="form-control" id="bouquetRatings" step=".01"
                                            name="bouquet_ratings" value="" />

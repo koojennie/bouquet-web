@@ -36,7 +36,6 @@
                                     <td><?= $row['bouquet_code'] ?></td>
                                     <td><?= $row['bouquet_name'] ?></td>
                                     <td>Rp <?= number_format($row['bouquet_price']) ?></td>
-                                    <!-- <td><?= $row['bouquet_qty'] ?></td> -->
                                     <td><?= $row['bouquet_category'] ?></td>
                                 </tr>
                                 <?php

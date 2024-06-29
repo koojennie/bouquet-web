@@ -79,11 +79,6 @@ if (isset($_GET['id'])) {
                                             name="bouquet_price" value="<?= $result['bouquet_price'] ?>" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="bouquetQuantity">Quantity</label>
-                                        <input type="number" class="form-control" id="bouquetQuantity" min="0"
-                                           name="bouquet_qty" value="<?= $result['bouquet_qty'] ?>" />
-                                    </div>
-                                    <div class="form-group">
                                         <label for="bouquetRatings">Ratings</label>
                                         <input type="number" class="form-control" id="bouquetRatings" step=".01"
                                            name="bouquet_ratings" value="<?= $result['bouquet_ratings'] ?>" />

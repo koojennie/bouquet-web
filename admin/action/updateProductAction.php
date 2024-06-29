@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bouquet_description = $_POST['bouquet_description'];
     $bouquet_type = $_POST['bouquet_type'];
     $bouquet_price = $_POST['bouquet_price'];
-    $bouquet_qty = $_POST['bouquet_qty'];
     $bouquet_ratings = $_POST['bouquet_ratings'];
     $bouquet_category = $_POST['bouquet_category'];
     $bouquet_image = $_FILES['bouquet_image']['name'];
@@ -33,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $image_path = '../../assets/images/flowers/' . $bouquet_image;
                 move_uploaded_file($image_temp, $image_path);
 
-                $query = "UPDATE tb_produk SET bouquet_code = ?, bouquet_name = ?, bouquet_image = ?, bouquet_description = ?, bouquet_type = ?, bouquet_price = ?, bouquet_qty = ?, bouquet_ratings = ?, bouquet_category = ? WHERE bouquet_id = ?";
+                $query = "UPDATE tb_produk SET bouquet_code = ?, bouquet_name = ?, bouquet_image = ?, bouquet_description = ?, bouquet_type = ?, bouquet_price = ?, bouquet_ratings = ?, bouquet_category = ? WHERE bouquet_id = ?";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param("sssssiidsi", $bouquet_code, $bouquet_name, $bouquet_image, $bouquet_description, $bouquet_type, $bouquet_price, $bouquet_qty, $bouquet_ratings, $bouquet_category, $bouquet_id);
+                $stmt->bind_param("sssssidsi", $bouquet_code, $bouquet_name, $bouquet_image, $bouquet_description, $bouquet_type, $bouquet_price, $bouquet_ratings, $bouquet_category, $bouquet_id);
                 $stmt->execute();
                 $stmt->close();
 
@@ -46,9 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     } else {
-        $query = "UPDATE tb_produk SET bouquet_code = ?, bouquet_name = ?, bouquet_description = ?, bouquet_type = ?, bouquet_price = ?, bouquet_qty = ?, bouquet_ratings = ?, bouquet_category = ? WHERE bouquet_id = ?";
+        $query = "UPDATE tb_produk SET bouquet_code = ?, bouquet_name = ?, bouquet_description = ?, bouquet_type = ?, bouquet_price = ?, bouquet_ratings = ?, bouquet_category = ? WHERE bouquet_id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssiidsi", $bouquet_code, $bouquet_name, $bouquet_description, $bouquet_type, $bouquet_price, $bouquet_qty, $bouquet_ratings, $bouquet_category, $bouquet_id);
+        $stmt->bind_param("ssssidsi", $bouquet_code, $bouquet_name, $bouquet_description, $bouquet_type, $bouquet_price, $bouquet_ratings, $bouquet_category, $bouquet_id);
         $stmt->execute();
         $stmt->close();
 

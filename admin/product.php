@@ -7,8 +7,8 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
-                <h3 class="fw-bold mb-3">Product</h3>
-                <h6 class="op-7 mb-2">Manajemen Product Bouqeut</h6>
+                <h3 class="fw-bold mb-3">Produk</h3>
+                <h6 class="op-7 mb-2">Manajemen produk Bloom & Bliss</h6>
             </div>
         </div>
 
@@ -16,9 +16,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Product</h4>
+                        <h4 class="card-title">Produk</h4>
                         <div class="d-flex justify-content-end">
-                            <a href="addProductPage.php" class="btn btn-primary">Tambah Product</a>
+                            <a href="addProductPage.php" class="btn btn-primary">Tambah Produk</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -46,7 +46,6 @@
                                             <td><?= $row['bouquet_code'] ?></td>
                                             <td><?= $row['bouquet_name'] ?></td>
                                             <td>Rp <?= number_format($row['bouquet_price']) ?></td>
-                                            <!-- <td><?= $row['bouquet_qty'] ?></td> -->
                                             <td><?= $row['bouquet_category'] ?></td>
                                             <td>
                                                 <button class="btn btn-sm btn-primary btn-round" data-bs-toggle="modal"

@@ -13,7 +13,7 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Bouquet Admin</title>
+    <title>Admin - Bloom & Bliss</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
@@ -41,6 +41,7 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
     <link rel="stylesheet" href="../assets/admin/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/admin/css/plugins.min.css" />
     <link rel="stylesheet" href="../assets/admin/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="../assets/admin/css/demo.css" />
@@ -85,22 +86,22 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
                                 <p>Dashboard</p>
                             </a>
                         </li>
+                        <li class="nav-item <?= $page == 'user.php' ? 'active' : '' ?>">
+                            <a href="user.php">
+                                <i class="fa-solid fa-users"></i>
+                                <p>User</p>
+                            </a>
+                        </li>
                         <li class="nav-item <?= $page == 'product.php' ? 'active' : '' ?>">
                             <a  href="product.php">
-                                <i class="fas fa-layer-group"></i>
+                                <i class="fa-solid fa-fan"></i>
                                 <p>Produk</p>
                             </a>
                         </li>
                         <li class="nav-item <?= $page == 'order.php' ? 'active' : '' ?>">
                             <a  href="order.php">
-                                <i class="fas fa-layer-group"></i>
+                                <i class="fa-solid fa-store"></i>
                                 <p>Order</p>
-                            </a>
-                        </li>
-                        <li class="nav-item <?= $page == 'user.php' ? 'active' : '' ?>">
-                            <a href="user.php">
-                                <i class="fas fa-address-book"></i>
-                                <p>User</p>
                             </a>
                         </li>
                     </ul>
