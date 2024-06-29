@@ -6,7 +6,7 @@ require 'koneksi.php';
 if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
   header("Location: login_register.php");
   exit();
-} ?>
+}
 
 
 $grand_total = 0;

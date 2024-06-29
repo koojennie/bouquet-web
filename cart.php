@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
   header("Location: login_register.php");
   exit();
-} ?>
+}
 
 ?>
 
