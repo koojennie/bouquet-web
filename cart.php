@@ -61,9 +61,24 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                     <i class="fa-regular fa-cart-shopping"></i>
                     <span id="cart-item" class="cart-number">0</span>
                   </a>
-                  <a href="profile.php" class="header-btn">
-                    <i class="fa-regular fa-user"></i>
-                  </a>
+                  <li>
+                    <img src="assets/images/user.png" width="45" height="45" class="profile">
+                    <ul>
+                        <!-- untuk dropdown profile menu -->
+                        <li class="sub-item">
+                            <i class="fa-solid fa-user-gear"></i>
+                            <a href="profile.php">
+                                <p>Edit profile</p>
+                            </a>
+                        </li>
+                        <li class="sub-item">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <a href="logout.php">
+                                <p>Logout</p>
+                            </a>
+                        </li>
+                    </ul>
+                  </li>
                 </div>
               </div>
             </div>
@@ -120,9 +135,6 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                 $result = $stmt->get_result();
                 $grand_total = 0;
                 while ($row = $result->fetch_assoc()):
-
-                  // var_dump($row);
-                  // die;
                   ?>
                   <tr>
                     <td><?= $row['cart_id'] ?></td>

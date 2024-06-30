@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // cek jika terdapat data yang sama atau data yang ada
 
-    $query = "SELECT * FROM tb_user WHERE usn_user = ? ";
+    $query = "SELECT * FROM tb_user WHERE id_user = ? ";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $id_user);
     $stmt->execute();

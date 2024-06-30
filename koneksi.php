@@ -2,7 +2,7 @@
 $server = "localhost:3307";
 $user = "root";
 $pass = "";
-$database = "db_bouquet";
+$database = "bloom_bliss";
 
 // membuat variabel untuk koneksi
 $conn = mysqli_connect($server, $user, $pass, $database);
