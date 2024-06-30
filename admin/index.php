@@ -1,5 +1,32 @@
 <!-- header php -->
-<?php include('layout/header.php') ?>
+<?php 
+include('layout/header.php');
+
+include('../koneksi.php');
+
+// jumlah product 
+$stmtProduct = $conn->prepare("SELECT * FROM tb_produk");
+$stmtProduct->execute();
+$resultProduct = $stmtProduct->get_result()->num_rows;
+
+
+// jumlah users
+$stmtUser = $conn->prepare("SELECT * FROM tb_user");
+$stmtUser->execute();
+$resultUser = $stmtUser->get_result()->num_rows;
+
+
+// jumlah pendapatan
+$stmtPaid = $conn->prepare("SELECT SUM(amount_paid) FROM orders");
+$stmtPaid->execute();
+$resultPaid = $stmtPaid->get_result()->fetch_assoc();
+
+// jumlah orders
+$stmtOrders = $conn->prepare("SELECT * FROM orders");
+$stmtOrders->execute();
+$resulOrders = $stmtOrders->get_result()->num_rows;
+
+?>
 
             <div class="container">
                 <div class="page-inner">
@@ -22,7 +49,7 @@
                                         <div class="col col-stats ms-3 ms-sm-0">
                                             <div class="numbers">
                                                 <p class="card-category">Products</p>
-                                                <h4 class="card-title">9</h4>
+                                                <h4 class="card-title"><?= $resultProduct ?></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -41,7 +68,7 @@
                                         <div class="col col-stats ms-3 ms-sm-0">
                                             <div class="numbers">
                                                 <p class="card-category">Users</p>
-                                                <h4 class="card-title">5</h4>
+                                                <h4 class="card-title"><?= $resultUser ?></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +87,7 @@
                                         <div class="col col-stats ms-3 ms-sm-0">
                                             <div class="numbers">
                                                 <p class="card-category">Sales</p>
-                                                <h4 class="card-title">Rp 10.000.000</h4>
+                                                <h4 class="card-title"><?= number_format($resultPaid['SUM(amount_paid)'])?></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +106,7 @@
                                         <div class="col col-stats ms-3 ms-sm-0">
                                             <div class="numbers">
                                                 <p class="card-category">Order</p>
-                                                <h4 class="card-title">10</h4>
+                                                <h4 class="card-title"><?= $resulOrders ?></h4>
                                             </div>
                                         </div>
                                     </div>
