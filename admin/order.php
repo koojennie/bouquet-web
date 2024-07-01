@@ -40,6 +40,7 @@
                                                 tb_produk.bouquet_id,
                                                 GROUP_CONCAT(tb_produk.bouquet_name SEPARATOR ', ') AS nameProducts,
                                                 GROUP_CONCAT(tb_produk.bouquet_price SEPARATOR ', ') AS priceProducts,
+                                                GROUP_CONCAT(tb_produk.bouquet_image SEPARATOR ', ') AS imageProducts,
                                                 GROUP_CONCAT(order_detail.qty SEPARATOR ', ') AS qtys
                                             FROM 
                                                 tb_user
@@ -50,7 +51,7 @@
                                             JOIN 
                                                 tb_produk ON order_detail.bouquet_id = tb_produk.bouquet_id
                                             GROUP BY 
-                                                orders.order_id
+                                                orders.order_id;
                                             ";
 
                                     $stmt = $conn->prepare($query);

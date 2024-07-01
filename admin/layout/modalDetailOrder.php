@@ -18,7 +18,7 @@
             <h5 class="mb-1 mx-2">Customer</h5>
           </div>
           <div class="col-4">
-            <a class="btn btn-primary mb-3" data-bs-toggle="collapse" href="#collapseViewCustomer" role="button"
+            <a class="btn btn-primary btn-rounded mb-3" data-bs-toggle="collapse" href="#collapseViewCustomer" role="button"
               aria-expanded="false" aria-controls="collapseViewCustomer">
               Show / Hide
             </a>
@@ -32,10 +32,10 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        Nama Customer
+                        <b>Nama Customer </b>
                       </h6>
                       <h6>
-                        <b><?= $row['nama_user'] ?></b>
+                        <?= $row['nama_user'] ?>
                       </h6>
                     </div>
                   </div>
@@ -46,10 +46,10 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        Email Customer
+                       <b> Email Customer </b>
                       </h6>
                       <h6>
-                        <b><?= $row['email_user'] ?></b>
+                        <?= $row['email_user'] ?>
                       </h6>
                     </div>
                   </div>
@@ -60,10 +60,10 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        Number Telp Customer
+                        <b> Number Telp Customer </b>
                       </h6>
                       <h6>
-                        <b><?= $row['notelp_user'] ?></b>
+                        <?= $row['notelp_user'] ?>
                       </h6>
                     </div>
                   </div>
@@ -74,10 +74,10 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        Alamat Customer
+                       <b> Alamat Customer </b>
                       </h6>
                       <h6>
-                        <b><?= $row['address'] ?></b>
+                        <?= $row['address'] ?>
                       </h6>
                     </div>
                   </div>
@@ -93,7 +93,7 @@
             <h5 class="mb-1 mx-2">Order</h5>
           </div>
           <div class="col-4">
-            <a class="btn btn-primary mb-3" data-bs-toggle="collapse" href="#collapseViewDetailOrder" role="button"
+            <a class="btn btn-primary btn-rounded mb-3" data-bs-toggle="collapse" href="#collapseViewDetailOrder" role="button"
               aria-expanded="false" aria-controls="collapseViewDetailOrder">
               Show / Hide
             </a>
@@ -107,10 +107,10 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        Order Id
+                        <b> Order Id </b>
                       </h6>
                       <h6>
-                        <b><?= $row['order_id'] ?></b>
+                        <?= $row['order_id'] ?>
                       </h6>
                     </div>
                   </div>
@@ -121,10 +121,10 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        Total Price
+                       <b> Total Price </b>
                       </h6>
                       <h6>
-                        <b>Rp.<?= number_format($row['amount_paid']) ?></b>
+                        Rp.<?= number_format($row['amount_paid']) ?>
                       </h6>
                     </div>
                   </div>
@@ -135,10 +135,10 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        Metode Payment
+                        <b>Metode Payment</b>
                       </h6>
                       <h6>
-                        <b><?= $row['pmode'] ?></b>
+                        <?= $row['pmode'] ?>
                       </h6>
                     </div>
                   </div>
@@ -149,45 +149,62 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        Order Date
+                        <b>Order Date </b>
                       </h6>
                       <h6>
-                        <?php 
-                          $datefromdatabase = $row['order_date'];
-                          // Ubah format tanggal dari Y-M-D ke format yang diinginkan
-                          $date = date('j F Y', strtotime($datefromdatabase));
+                        <?php
+                        $datefromdatabase = $row['order_date'];
+                        // Ubah format tanggal dari Y-M-D ke format yang diinginkan
+                        $date = date('j F Y', strtotime($datefromdatabase));
                         ?>
-                        <b><?= $date ?></b>
+                        <?= $date ?>
                       </h6>
-                      
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <!-- <table>
-                  <th>Nama</th>
-                  <th>Prices</th>
-                  
-                </table> -->
-              </div>
-              <!-- <div class="col-12">
-                <div class="card card-info">
-                  <div class="d-flex align-item-center">
-                    <h6 class="mb-1">
-                      Order
-                    </h6>
-                    <table>
-                        <th>No</th>
-                        <th>Pesanan</th>
-                        <th>Harga</th>
-                        <th>Quantity</th>
-                        <th>Sub Total</th>
-                    </table>
+
+              <div class="row">
+
+              <h3>Items</h3>
+
+                <?php
+                $productArray = explode(', ', $row['nameProducts']);
+                $quantityArray = explode(', ', $row['qtys']);
+                $priceArray = explode(', ', $row['priceProducts']);
+                $imageArray = explode(', ', $row['imageProducts']);
+                $subtotal = 0;
+
+                for ($i = 0; $i < count($productArray); $i++) {
+                  $subTotalItem = $quantityArray[$i] * $priceArray[$i];
+                  $subtotal += $subTotalItem;
+                  ?>
+                  <div class="col-lg-4">
+                    <div class="card-list py-4">
+                      <div class="item-list">
+                        <div class="avatar">
+                          <img src="../assets/images/flowers/<?= $imageArray[$i]; ?>" alt="..." class="avatar-img rounded-circle" />
+                        </div>
+                        <div class="info-user ms-3">
+                          <div class="username"><?= $productArray[$i] ?></div>
+                          <div class="status"><?= $quantityArray[$i] ?> x Rp. <?= number_format($priceArray[$i]) ?> </div>
+                        </div>
+                        <div class="ms-3">
+                          SubTotal : Rp. <?= number_format($subTotalItem) ?>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
-                </div>
-              </div> -->
-              
+
+                  <?php
+                }
+                ?>
+
+              </div>
+
+
+
             </div>
           </div>
 
