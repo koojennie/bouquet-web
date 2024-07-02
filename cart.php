@@ -160,7 +160,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                 <?php endwhile; ?>
                 <tr>
                   <td colspan="3">
-                    <a href="home.php" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Continue
+                    <a href="home.php#catalouge" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Continue
                       Shopping</a>
                   </td>
                   <td colspan="2"><b>Grand Total</b></td>

@@ -133,10 +133,10 @@ if (isset($_POST['action']) && $_POST['action'] == 'order') {
 
     if($stmt->error){
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-    } // else {
-    //     $order_id = $conn->insert_id;
-    //     echo "New order created successfully with ID: " . $order_id;
-    // }
+    } else {
+        $order_id = $conn->insert_id;
+        // echo "New order created successfully with ID: " . $order_id;
+    }
 
     // inserts into table orderDetail
     $orderDetailstmt = $conn->prepare('INSERT INTO order_detail(bouquet_id, qty ,order_id) VALUES(?, ?, ?)');
