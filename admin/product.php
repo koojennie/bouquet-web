@@ -60,7 +60,7 @@
                                             </td>
                                         </tr>
                                         <!-- modal -->
-                                        <?php include ('layout/modal.php'); ?>
+                                        <?php include ('layout/modalDetailProduct.php'); ?>
                                         <?php
                                     endwhile;
                                     ?>
