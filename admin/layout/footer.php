@@ -107,6 +107,7 @@
             const id = $(this).data('id');
             const type = $(this).data('type'); // menentukan tipe, bisa 'product' atau 'user'
 
+
             swal({
                 title: "Apakah Anda yakin ingin menghapus?",
                 icon: "warning",
@@ -120,6 +121,8 @@
                         url = "action/deleteProductAction.php";
                     } else if (type === "user") {
                         url = "action/deleteUserAction.php";
+                    } else if (type === "order"){
+                        url = "action/deleteOrderAction.php";
                     }
 
                     $.ajax({

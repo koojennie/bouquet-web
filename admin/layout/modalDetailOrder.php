@@ -1,4 +1,4 @@
-<div class="modal fade" id="viewDetailOrderid<?= $row['bouquet_id'] ?>" tabindex="-1"
+<div class="modal fade" id="viewDetailOrderid<?= $row['order_id'] ?>" tabindex="-1"
   aria-labelledby="ModalLabelDetail<?= $row['order_id'] ?>" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">

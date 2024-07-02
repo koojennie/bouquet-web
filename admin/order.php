@@ -34,7 +34,7 @@
                                     <?php
                                     include '../koneksi.php';
                                     $query = "
-                                            SELECT 
+                                           SELECT 
                                                 tb_user.*,
                                                 orders.*, 
                                                 tb_produk.bouquet_id,
@@ -51,6 +51,8 @@
                                             JOIN 
                                                 tb_produk ON order_detail.bouquet_id = tb_produk.bouquet_id
                                             GROUP BY 
+                                                orders.order_id
+                                            ORDER BY 
                                                 orders.order_id;
                                             ";
 
@@ -87,10 +89,10 @@
                                             </td>
                                             <td>
                                                 <button class="btn btn-sm btn-primary btn-round" data-bs-toggle="modal"
-                                                    data-bs-target="#viewDetailOrderid<?= $row['bouquet_id'] ?> "><i
+                                                    data-bs-target="#viewDetailOrderid<?= $row['order_id'] ?> "><i
                                                         class="fas fa-eye"></i></button>
                                                 <button class="btn btn-sm btn-danger btn-round delete-button"
-                                                    data-id="<?php echo $row['bouquet_id']; ?>" data-type="product"><i
+                                                    data-id="<?php echo $row['order_id']; ?>" data-type="order"><i
                                                         class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
