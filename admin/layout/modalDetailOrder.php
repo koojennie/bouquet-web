@@ -202,20 +202,11 @@
                 ?>
 
               </div>
-
-
-
             </div>
           </div>
-
-
-
         </div>
-
-
         <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        <a href="report/orderReportPerOrder.php" class="btn btn-info btn-round"><i class="fas fa-print"></i> Cetak</a>
         </div>
       </div>
     </div>
