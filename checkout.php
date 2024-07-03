@@ -107,9 +107,9 @@ $allItems = implode(', ', $items);
           <div class="form-group">
             <select name="pmode" class="form-control">
               <option value="" selected disabled>-Select Payment Mode-</option>
-              <option value="cod">Cash On Delivery</option>
-              <option value="netbanking">Net Banking</option>
-              <option value="cards">Debit/Credit Card</option>
+              <option value="COD">Cash On Delivery</option>
+              <option value="E-Banking">E-Banking</option>
+              <option value="Card">Debit/Credit Card</option>
             </select>
           </div>
           <div class="form-group">
