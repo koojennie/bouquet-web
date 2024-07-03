@@ -70,16 +70,14 @@ $allItems = implode(', ', $items);
       <div class="col-lg-6 px-4 pb-4" id="order">
         <h4 class="text-center text-info p-2">Complete your order!</h4>
         <div class="jumbotron p-3 mb-2 text-center">
-          <!-- <h6 class="lead"><b>Product(s) : </b><?= $allItems; ?></h6> -->
           <h6 class="lead"><b>Product(s) : </b>
             <?php foreach ($allProduct as $row):
               ?>
               <p><?= $row['bouquet_name'] ?> (<?= $row['bouquet_qty'] ?>) </p>
             <?php endforeach ?>
-
           </h6>
           <h6 class="lead"><b>Delivery Charge : </b>Free</h6>
-          <h5><b>Total Amount Payable : </b><?= number_format($grand_total) ?></h5>
+          <h5><b>Total Amount Payable : Rp</b><span id="total-amount"><?= number_format($grand_total) ?></span></h5>
         </div>
         <form action="" method="post" id="placeOrder">
           <input type="hidden" name="session_user_id" value="<?= $sess_user_id; ?>">
@@ -89,31 +87,30 @@ $allItems = implode(', ', $items);
             <input type="hidden" name="produk_id_<?= $row['bouquet_id'] ?>" value="<?= $row['bouquet_id'] ?>">
             <input type="hidden" name="produk_qty_<?= $row['bouquet_id'] ?>" value="<?= $row['bouquet_qty'] ?>">
           <?php endforeach ?>
-          <input type="hidden" name="grand_total" value="<?= $grand_total; ?>">
-          <!-- <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="Enter E-Mail" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone" class="form-control" placeholder="Enter Phone" required>
-                    </div> -->
-          <div class="form-group">
-            <textarea name="address" class="form-control" rows="3" cols="10"
-              placeholder="Enter Delivery Address Here..."></textarea>
-          </div>
-          <h6 class="text-center lead">Select Payment Mode</h6>
-          <div class="form-group">
-            <select name="pmode" class="form-control">
-              <option value="" selected disabled>-Select Payment Mode-</option>
-              <option value="COD">Cash On Delivery</option>
-              <option value="E-Banking">E-Banking</option>
-              <option value="Card">Debit/Credit Card</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <input type="submit" name="submit" value="Place Order" class="btn btn-danger btn-block">
+          <input type="hidden" name="grand_total" id="total-amount-value" value="<?= $grand_total; ?>">
+          <div class="card">
+            <div class="form-group">
+              <h6><b>Your Address</b></h6>
+              <textarea name="address" class="form-control" rows="3" cols="10"
+                placeholder="Enter Delivery Address Here..."></textarea>
+            </div>
+            <div class="form-group mt-3">
+              <h6><b>Payment Method</b></h6>
+              <select name="pmode" class="form-control">
+                <option value="" selected disabled>Select Payment Method</option>
+                <option value="COD">Cash On Delivery</option>
+                <option value="E-Banking">E-Banking</option>
+                <option value="Card">Debit/Credit Card</option>
+              </select>
+            </div>
+            <div class="form-group mt-3">
+                <h6>Promo Code</h6>
+                <input type="text" name="promo" class="form-control" id="promo-code" placeholder="Enter Promo Code Here...">
+                <
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" name="submit" value="Place Order" class="btn btn-danger btn-block">
+            </div>
           </div>
         </form>
       </div>
@@ -155,6 +152,38 @@ $allItems = implode(', ', $items);
         });
       }
     });
+  </script>
+
+  <script>
+      document.getElementById('promo-code').addEventListener('keyup', function(event) {
+          if (event.key === 'Enter') {
+              let promoCode = this.value;
+              let grandTotal = <?= $grand_total; ?>;
+
+              // Buat AJAX request untuk memeriksa dan menghitung diskon
+              let xhr = new XMLHttpRequest();
+              xhr.open('POST', 'apply_promo.php', true);
+              xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+              xhr.onload = function() {
+                  if (xhr.status === 200) {
+                      let response = JSON.parse(xhr.responseText);
+                      if (response.success) {
+                          document.getElementById('total-amount').innerText = response.new_total;
+                          document.getElementById('total-amount-value').value = response.new_total_value;
+                      } else {
+                          alert(response.message);
+                      }
+                  }
+              };
+              xhr.send('promo=' + promoCode + '&grand_total=' + grandTotal);
+          }
+      });
+
+      document.getElementById('placeOrder').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Mencegah form submit
+        }
+      });
   </script>
 </body>
 

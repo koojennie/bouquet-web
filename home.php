@@ -32,6 +32,9 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
 </head>
 
 <body class="body-fixed">
+    <section id="promo" class ="fixed">
+        
+    </section>
     <!-- start of header  -->
     <header class="site-header">
         <div class="container">
