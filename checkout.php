@@ -88,6 +88,7 @@ $allItems = implode(', ', $items);
             <input type="hidden" name="produk_qty_<?= $row['bouquet_id'] ?>" value="<?= $row['bouquet_qty'] ?>">
           <?php endforeach ?>
           <input type="hidden" name="grand_total" id="total-amount-value" value="<?= $grand_total; ?>">
+          <input type="hidden" name="discount" id="discount" value="">
           <div class="card">
             <div class="form-group">
               <h6><b>Your Address</b></h6>
@@ -106,7 +107,7 @@ $allItems = implode(', ', $items);
             <div class="form-group mt-3">
                 <h6>Promo Code</h6>
                 <input type="text" name="promo" class="form-control" id="promo-code" placeholder="Enter Promo Code Here...">
-                <
+                
             </div>
             <div class="form-group mt-3">
                 <input type="submit" name="submit" value="Place Order" class="btn btn-danger btn-block">
@@ -170,6 +171,7 @@ $allItems = implode(', ', $items);
                       if (response.success) {
                           document.getElementById('total-amount').innerText = response.new_total;
                           document.getElementById('total-amount-value').value = response.new_total_value;
+                          document.getElementById('discount').value = response.discount;
                       } else {
                           alert(response.message);
                       }
