@@ -187,7 +187,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'order') {
         <h4>Your Name : ' . $resultUser['nama_user'] . '</h4>
         <h4>Your E-mail : ' . $resultUser['email_user'] . '</h4>
         <h4>Your Phone : ' . $resultUser['notelp_user'] . '</h4>
-        <h4>Total Amount Paid : ' . number_format($grand_total) . '</h4>
+        <h4>Total Amount Paid : Rp.' . number_format($grand_total) . '</h4>
         <h4>Payment Mode : ' . $pmode . '</h4>
     </div>';
     echo $data;

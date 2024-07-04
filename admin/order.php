@@ -8,7 +8,7 @@
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
       <div>
         <h3 class="fw-bold mb-3">Order</h3>
-        <h6 class="op-7 mb-2">Manajemen laporan Bloom & Bliss</h6>
+        <h6 class="op-7 mb-2">Manajemen Order Bloom & Bliss</h6>
       </div>
     </div>
     <div class="row">
@@ -28,7 +28,7 @@
                     <th>Name Customer</th>
                     <th>Product (qty)</th>
                     <th>Total Price</th>
-                    <th>Method Payment</th>
+                    <th>Payment</th>
                     <th>Order Date</th>
                     <th>Action</th>
                   </tr>
@@ -91,11 +91,12 @@
                         <?= $date ?>
                       </td>
                       <td>
+                        <a href="report/orderReportPerOrder.php?order_id=<?= $row['order_id'] ?>" class="btn btn-info btn-sm btn-round"><i class="fas fa-receipt"></i> </a>
                         <button class="btn btn-sm btn-primary btn-round" data-bs-toggle="modal"
                           data-bs-target="#viewDetailOrderid<?= $row['order_id'] ?> "><i class="fas fa-eye"></i></button>
                         <button class="btn btn-sm btn-danger btn-round delete-button"
                           data-id="<?php echo $row['order_id']; ?>" data-type="order"><i class="fa fa-trash"></i></button>
-                      </td>
+                        </td>
                     </tr>
 
                     <?php include ('layout/modalDetailOrder.php'); ?>

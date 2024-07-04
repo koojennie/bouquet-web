@@ -45,6 +45,9 @@ if(!isset($_SESSION['usn_user']) == 'admin'){
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="../assets/admin/css/demo.css" />
+    
+    <!-- favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon"/>
 </head>
 
 <body>

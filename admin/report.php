@@ -27,7 +27,7 @@
                                         <th>Product Image</th>
                                         <th>Product</th>
                                         <th>Harga</th>
-                                        <th>Quantity</th>
+                                        <th>Qty</th>
                                         <th>Total Harga</th>
                                     </tr>
                                 </thead>
