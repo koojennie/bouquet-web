@@ -26,7 +26,7 @@ GROUP BY
     orders.order_id
 ORDER BY 
     orders.order_date DESC;
-                  ";
+";
 
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $order_id);
@@ -54,7 +54,7 @@ $results = $result->fetch_assoc();
       margin: 0 auto;
     }
 
-    .receipt-header{
+    .receipt-header {
       text-align: center;
     }
 
@@ -71,8 +71,14 @@ $results = $result->fetch_assoc();
       justify-content: space-between;
     }
 
-    .receipt-body .info p {
-      margin: 5px 0;
+    .receipt-body .info table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .receipt-body .info table td {
+      padding: 5px;
+      border: none;
     }
 
     .receipt-body .items {
@@ -85,19 +91,20 @@ $results = $result->fetch_assoc();
       border-collapse: collapse;
     }
 
-    .receipt-body .items th, .receipt-body .items td {
+    .receipt-body .items th,
+    .receipt-body .items td {
       border: 1px solid #000;
       padding: 8px;
       text-align: left;
     }
 
-    .receipt-body .total{
+    .receipt-body .total {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
-    } 
+    }
 
-    .receipt-footer{
+    .receipt-footer {
       margin: 30px 0 0 0;
       text-align: right;
       border-top: 1px solid #000;
@@ -114,16 +121,34 @@ $results = $result->fetch_assoc();
     </div>
     <div class="receipt-body">
       <div class="info">
-        <div>
-          <p>Nama Customer:</p>
-          <p>Tanggal Order:</p>
-          <p>Metode Payment:</p>
-        </div>
-        <div>
-          <p><?= $results['nama_user'] ?></p>
-          <p><?= date('j F Y', strtotime($results['order_date'])) ?></p>
-          <p><?= $results['pmode'] ?></p>
-        </div>
+        <table>
+          <tbody>
+            <tr>
+              <td>Nama Customer: </td>
+              <td><?= $results['nama_user'] ?></td>
+            </tr>
+            <tr>
+              <td>Email Customer : </td>
+              <td><?= $results['email_user'] ?></td>
+            </tr>
+            <tr>
+              <td>No Telp : </td>
+              <td><?= $results['notelp_user'] ?></td>
+            </tr>
+            <tr>
+              <td>Alamat Customer : </td>
+              <td><?= $results['address'] ?></td>
+            </tr>
+            <tr>
+              <td>Tanggal Order : </td>
+              <td><?= date('j F Y', strtotime($results['order_date'])) ?></td>
+            </tr>
+            <tr>
+              <td>Metode Payment : </td>
+              <td><?= $results['pmode'] ?></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="items">
         <h3>Products:</h3>
@@ -162,13 +187,22 @@ $results = $result->fetch_assoc();
         <p>Subtotal</p>
         <p>Rp. <?= number_format($allTotal); ?></p>
       </div>
+      <?php
+      $amount_paid = $results['amount_paid'];
+      $discountAmount = $allTotal - $amount_paid;
+      $discountPercentage = ($discountAmount / $allTotal) * 100;
+      ?>
       <div class="total">
-        <p>Diskon</p>
-        <p>Rp. <!-- Diskon di sini, tambahkan logika PHP jika diperlukan --></p>
+        <p>Diskon (<?= number_format($discountPercentage); ?>%)</p>
+        <p>Rp. <?= number_format($discountAmount); ?> </p>
       </div>
       <div class="total">
-        <p>Total Amount</p>
-        <p>Rp. <?= number_format($results['amount_paid']); ?></p>
+        <strong>
+          <p>Total Bayar</p>
+        </strong>
+        <strong>
+          <p>Rp. <?= number_format($amount_paid); ?></p>
+        </strong>
       </div>
     </div>
     <div class="receipt-footer">

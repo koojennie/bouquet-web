@@ -18,6 +18,8 @@
             <h4 class="card-title">Tabel Order</h4>
             <div class="d-flex justify-content-end">
               <a href="report/OrderReportAll.php" target="_blank" class="btn btn-info">Cetak Semua Data Order</a>
+              <button class="btn btn-primary ms-3" data-bs-toggle="modal"
+                data-bs-target="#cetak_perbulan_order">Cetak Perbulan</button>
             </div>
           </div>
           <div class="card-body">
@@ -25,6 +27,7 @@
               <table id="katalog-datatables" class="display table table-striped table-hover">
                 <thead>
                   <tr>
+                    <th>No</th>
                     <th>Name Customer</th>
                     <th>Product (qty)</th>
                     <th>Total Price</th>
@@ -56,20 +59,23 @@
                     GROUP BY 
                         orders.order_id
                     ORDER BY 
-                        orders.order_date DESC;
+                        orders.order_id DESC;
                     ";
 
                   $stmt = $conn->prepare($query);
                   $stmt->execute();
                   $result = $stmt->get_result();
                   $results = $result->fetch_all(MYSQLI_ASSOC);
+                  $num = 0;
 
                   // var_dump($results);
                   // die;
                   
                   foreach ($results as $row):
+                    $num += 1;
                     ?>
                     <tr>
+                      <td><?= $num ?></td>
                       <td><?= $row['nama_user'] ?></td>
                       <td>
                         <?php
@@ -91,12 +97,13 @@
                         <?= $date ?>
                       </td>
                       <td>
-                        <a href="report/orderReportPerOrder.php?order_id=<?= $row['order_id'] ?>" class="btn btn-info btn-sm btn-round"><i class="fas fa-receipt"></i> </a>
+                        <a href="report/orderReportPerOrder.php?order_id=<?= $row['order_id'] ?>" target="_blank"
+                          class="btn btn-info btn-sm btn-round"><i class="fas fa-receipt"></i> </a>
                         <button class="btn btn-sm btn-primary btn-round" data-bs-toggle="modal"
                           data-bs-target="#viewDetailOrderid<?= $row['order_id'] ?> "><i class="fas fa-eye"></i></button>
                         <button class="btn btn-sm btn-danger btn-round delete-button"
                           data-id="<?php echo $row['order_id']; ?>" data-type="order"><i class="fa fa-trash"></i></button>
-                        </td>
+                      </td>
                     </tr>
 
                     <?php include ('layout/modalDetailOrder.php'); ?>
@@ -111,8 +118,10 @@
         </div>
       </div>
     </div>
+    <?php include ('layout/modalCetak.php'); ?>
   </div>
 </div>
+
 <!-- end content -->
 
 <!-- footer -->

@@ -206,7 +206,7 @@
           </div>
         </div>
         <div class="modal-footer">
-        <a href="report/orderReportPerOrder.php" class="btn btn-info btn-round"><i class="fas fa-print"></i> Cetak</a>
+        <a href="report/orderReportPerOrder.php?order_id=<?= $row['order_id'] ?>" class="btn btn-info btn-round"><i class="fas fa-print"></i> Cetak</a>
         </div>
       </div>
     </div>
