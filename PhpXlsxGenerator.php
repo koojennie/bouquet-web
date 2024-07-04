@@ -84,14 +84,14 @@ class PhpXlsxGenerator
 
     public function __construct()
     {
-        $this->subject = '';
-        $this->title = '';
+        $this->subject = '1';
+        $this->title = '2';
         $this->author = 'CodexWorld Dev <codexworld.com@gmail.com>';
         $this->company = 'CodexWorld Dev <codexworld.com@gmail.com>';
         $this->manager = 'CodexWorld Dev <codexworld.com@gmail.com>';
-        $this->description = '';
-        $this->keywords = '';
-        $this->category = '';
+        $this->description = '3';
+        $this->keywords = '4';
+        $this->category = '5';
         $this->lastModifiedBy = 'CodexWorld Dev <codexworld.com@gmail.com>';
         $this->application = __CLASS__;
 

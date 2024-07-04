@@ -18,8 +18,9 @@
             <h4 class="card-title">Tabel Laporan</h4>
             <div class="d-flex justify-content-end">
               <a href="report/laporanReportAll.php" target="_blank" class="btn btn-info">Cetak Semua Data Laporan</a>
-              <button class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#cetak_perbulan_laporan">Cetak
+              <button class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#cetak_perbulan_laporan">Cetak
                 Perbulan</button>
+              <a href="action/exportIntoExcel.php" class="btn btn-success" target="_blank">Cetak Excel</a>
             </div>
           </div>
           <div class="card-body">
@@ -41,24 +42,24 @@
                   <?php
                   include '../koneksi.php';
                   $query = "
-                                          SELECT 
-                                            orders.order_date ,
-                                            tb_produk.bouquet_code ,
-                                            tb_produk.bouquet_name ,
-                                            tb_produk.bouquet_price,
-                                            tb_produk.bouquet_image,
-                                            SUM(order_detail.qty) AS `Quantity`,
-                                            SUM(tb_produk.bouquet_price * order_detail.qty) AS `Total Price`
-                                        FROM 
-                                            orders
-                                        JOIN 
-                                            order_detail  ON orders.order_id = order_detail.order_id
-                                        JOIN 
-                                            tb_produk  ON order_detail.bouquet_id = tb_produk.bouquet_id
-                                        GROUP BY 
-                                            orders.order_date, tb_produk.bouquet_code, tb_produk.bouquet_name
-                                        ORDER BY 
-                                            orders.order_date DESC; ";
+                    SELECT 
+                      orders.order_date ,
+                      tb_produk.bouquet_code ,
+                      tb_produk.bouquet_name ,
+                      tb_produk.bouquet_price,
+                      tb_produk.bouquet_image,
+                      SUM(order_detail.qty) AS `Quantity`,
+                      SUM(tb_produk.bouquet_price * order_detail.qty) AS `Total Price`
+                  FROM 
+                      orders
+                  JOIN 
+                      order_detail  ON orders.order_id = order_detail.order_id
+                  JOIN 
+                      tb_produk  ON order_detail.bouquet_id = tb_produk.bouquet_id
+                  GROUP BY 
+                      orders.order_date, tb_produk.bouquet_code, tb_produk.bouquet_name
+                  ORDER BY 
+                      orders.order_date DESC; ";
 
                   // $query = "
                   
