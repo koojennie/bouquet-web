@@ -462,7 +462,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                     <h2>Welcome to Bloom & Bliss!</h2>
                     <p>Please login to continue.</p>
                     <div class="modal-buttons-yang lain ">
-                            ini modal diskon
+                        ini modal diskon
                     </div>
                 </div>
             </div>
@@ -517,18 +517,17 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function(){
-            console.log("ini ketika ke load bakal muncul");
-            // $('#popupModalPromo').modal('show');
-            $('#popupModalPromo').css('display', 'block');
+        // document.addEventListener("DOMContentLoaded", function(){
+        //     console.log("ini ketika ke load bakal muncul");
 
-            $('.close-btn').click(function() {
-                $('#popupModalPromo').css('display', 'none');
-            })
-            
-        })
+        // })
 
         $(document).ready(function () {
+            $('#popupModalPromo').css('display', 'block');
+
+            $('.close-btn').click(function () {
+                $('#popupModalPromo').css('display', 'none');
+            })
 
 
 
