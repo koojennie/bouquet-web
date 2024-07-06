@@ -27,14 +27,16 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <!-- custom css  -->
     <link rel="stylesheet" href="style.css">
     <!-- favicon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
 </head>
 
 <body class="body-fixed">
-    <section id="promo" class ="fixed">
-        
+    <section id="promo" class="fixed">
+
     </section>
+
+
     <!-- start of header  -->
     <header class="site-header">
         <div class="container">
@@ -451,8 +453,22 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                     </div>
                 </div>
             </footer>
+
+
+            <!-- Pop-up Modal -->
+            <div id="popupModalPromo" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Welcome to Bloom & Bliss!</h2>
+                    <p>Please login to continue.</p>
+                    <div class="modal-buttons-yang lain ">
+                            ini modal diskon
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 
     <!-- jquery  -->
     <script src="assets/js/jquery-3.5.1.min.js"></script>
@@ -501,7 +517,20 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(){
+            console.log("ini ketika ke load bakal muncul");
+            // $('#popupModalPromo').modal('show');
+            $('#popupModalPromo').css('display', 'block');
+
+            $('.close-btn').click(function() {
+                $('#popupModalPromo').css('display', 'none');
+            })
+            
+        })
+
         $(document).ready(function () {
+
+
 
             // Send product details in the server
             $(".addItemBtn").click(function (e) {
