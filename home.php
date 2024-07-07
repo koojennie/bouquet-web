@@ -456,7 +456,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
 
 
             <!-- Pop-up Modal -->
-            <div id="popupModalPromo" class="modal">
+            <ddiv id="popupModalPromo" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
                     <h2>Welcome to Bloom & Bliss!</h2>
@@ -465,7 +465,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                         ini modal diskon
                     </div>
                 </div>
-            </div>
+            </ddiv>
         </div>
     </div>
 
