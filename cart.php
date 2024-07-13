@@ -51,7 +51,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                   <ul class="menu food-nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#catalouge">Catalouge</a></li>
+                    <li><a href="#catalog">Catalog</a></li>
                     <li><a href="#review">Review</a></li>
                     <li><a href="#contact">Contact</a></li>
                   </ul>
@@ -160,7 +160,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                 <?php endwhile; ?>
                 <tr>
                   <td colspan="3">
-                    <a href="home.php#catalouge" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Continue
+                    <a href="home.php#catalog" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Continue
                       Shopping</a>
                   </td>
                   <td colspan="2"><b>Grand Total</b></td>

@@ -8,7 +8,7 @@
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
       <div>
         <h3 class="fw-bold mb-3">Laporan Penjualan</h3>
-        <h6 class="op-7 mb-2">Manajemen order Bloom & Bliss</h6>
+        <h6 class="op-7 mb-2">Manajemen laporan Bloom & Bliss</h6>
       </div>
     </div>
     <div class="row">
@@ -28,14 +28,14 @@
               <table id="katalog-datatables" class="display table table-striped table-hover">
                 <thead>
                   <tr>
-                    <td>No</td>
+                    <td><b>NO</b></td>
                     <th>Order Date</th>
                     <th>Product Code</th>
                     <th>Product Image</th>
                     <th>Product</th>
-                    <th>Harga</th>
+                    <th>Price</th>
                     <th>Qty</th>
-                    <th>Total Harga</th>
+                    <th>Total Price</th>
                   </tr>
                 </thead>
                 <tbody>

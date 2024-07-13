@@ -43,7 +43,7 @@ session_start();
                             <ul class="menu food-nav-menu">
                                 <li><a href="#home">Home</a></li>
                                 <li><a href="#about">About</a></li>
-                                <li><a href="#catalouge">Catalouge</a></li>
+                                <li><a href="#catalog">Catalog</a></li>
                                 <li><a href="#review">Review</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
@@ -137,13 +137,13 @@ session_start();
                 </div>
             </section>
 
-            <section class="our-menu section bg-pink repeat-img" id="catalouge">
+            <section class="our-menu section bg-pink repeat-img" id="catalog">
                 <div class="sec-wp">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="sec-title text-center mb-5">
-                                    <p class="sec-sub-title mb-3">Our Catalouge</p>
+                                    <p class="sec-sub-title mb-3">Our Catalog</p>
                                     <h2 class="h2-title">choose your own, <span>give it to your loved ones</span></h2>
                                 </div>
                             </div>
@@ -674,7 +674,7 @@ session_start();
                                     <ul>
                                         <li><a href="#home" class="footer-active-menu">Home</a></li>
                                         <li><a href="#about">About</a></li>
-                                        <li><a href="#catalouge">Catalouge</a></li>
+                                        <li><a href="#catalog">Catalog</a></li>
                                         <li><a href="#review">Review</a></li>
                                         <li><a href="#contact">Contact</a></li>
                                     </ul>
@@ -746,6 +746,7 @@ session_start();
         </div>
     </div>
 
+    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

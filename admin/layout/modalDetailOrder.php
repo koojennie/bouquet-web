@@ -32,7 +32,7 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        <b>Nama Customer </b>
+                        <b>Name</b>
                       </h6>
                       <h6>
                         <?= $row['nama_user'] ?>
@@ -46,7 +46,7 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                       <b> Email Customer </b>
+                       <b>Email</b>
                       </h6>
                       <h6>
                         <?= $row['email_user'] ?>
@@ -60,7 +60,7 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        <b> Number Telp Customer </b>
+                        <b>Phone Number</b>
                       </h6>
                       <h6>
                         <?= $row['notelp_user'] ?>
@@ -74,7 +74,7 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                       <b> Alamat Customer </b>
+                       <b>Address</b>
                       </h6>
                       <h6>
                         <?= $row['address'] ?>
@@ -107,7 +107,7 @@
                   <div class="d-flex align-items-center">
                     <div>
                       <h6 class="mb-1">
-                        <b> Order Id </b>
+                        <b> Order ID </b>
                       </h6>
                       <h6>
                         <?= $row['order_id'] ?>

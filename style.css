@@ -1190,6 +1190,32 @@ p {
     background-color: #bbb;
   }
 
+  /* pop up modal buat home.php */
+  .modal-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .modal-btn button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  #promoBtn {
+    background-color: #ff9fb7;
+    color: white;
+    border-radius: 30px;
+  }
+  
+  #promoBtn:hover {
+    background-color: #fb6f92;
+  }
+
 /* **************** responsiveness ***************** */
 
 @media (min-width: 2100px) {

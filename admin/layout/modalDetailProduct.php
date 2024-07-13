@@ -16,17 +16,17 @@
             <div class="col-lg-4">
               <div class="form-group">
                 <input type="hidden" name="bouquet_id" value="<?= $row['bouquet_id'] ?>">
-                <label for="bouquetCode">Code Bouqeut</label>
+                <label for="bouquetCode">Code</label>
                 <input type="text" class="form-control" id="bouquetCode" placeholder="Enter code" name="bouquet_code"value="<?= $row['bouquet_code'] ?>" disabled />
               </div>
             </div>
             <div class="form-group">
-              <label for="bouquetName">Name Bouqeut</label>
+              <label for="bouquetName">Name</label>
               <input type="text" class="form-control" id="bouquetName" placeholder="Enter Name" name="bouquet_name"
                 value="<?= $row['bouquet_name'] ?>" disabled />
             </div>
             <div class="form-group">
-              <label for="exampleInputName1">Image Bouquet</label>
+              <label for="exampleInputName1">Image</label>
             </div>
             <div class="form-group">
               <img src="../assets/images/flowers/<?= $row['bouquet_image'] ?>" class="img-thumbnail"
@@ -40,7 +40,7 @@
           </div>
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="bouquetType">Type Bouquet</label>
+              <label for="bouquetType">Type</label>
               <input type="text" class="form-control" id="bouquetType" placeholder="Enter type" name="bouquet_type"
                 value="<?= $row['bouquet_type'] ?>" disabled/>
             </div>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="form-group">
-              <label for="bouquetCategory">Category Bouqeut</label>
+              <label for="bouquetCategory">Category</label>
               <select class="form-select form-control" name="bouquet_category" id="bouquetCategory" disabled>
                 <option value="wedding" <?= $row['bouquet_category'] == 'wedding' ? "selected" : "" ?>>Wedding</option>
                 <option value="graduation" <?= $row['bouquet_category'] == 'graduation' ? "selected" : "" ?>>Graduation

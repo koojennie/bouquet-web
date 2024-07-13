@@ -41,7 +41,7 @@ $results = $result->fetch_assoc();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Receipt</title>
+  <title>Invoice</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -116,35 +116,36 @@ $results = $result->fetch_assoc();
 <body>
   <div class="receipt">
     <div class="receipt-header">
-      <h1>Data Detail Pesanan Bloom & Bliss</h1>
-      <h3>Order Detail <?= $order_id ?></h3>
+      <h1>Bloom & Bliss</h1>
+      <h2>Invoice</h2>
+      <h3>Invoice No <?= $order_id ?></h3>
     </div>
     <div class="receipt-body">
       <div class="info">
         <table>
           <tbody>
             <tr>
-              <td>Nama Customer: </td>
+              <td>Name            : </td>
               <td><?= $results['nama_user'] ?></td>
             </tr>
             <tr>
-              <td>Email Customer : </td>
+              <td>Email           : </td>
               <td><?= $results['email_user'] ?></td>
             </tr>
             <tr>
-              <td>No Telp : </td>
+              <td>Phone Number    : </td>
               <td><?= $results['notelp_user'] ?></td>
             </tr>
             <tr>
-              <td>Alamat Customer : </td>
+              <td>Address         : </td>
               <td><?= $results['address'] ?></td>
             </tr>
             <tr>
-              <td>Tanggal Order : </td>
+              <td>Order Date      : </td>
               <td><?= date('j F Y', strtotime($results['order_date'])) ?></td>
             </tr>
             <tr>
-              <td>Metode Payment : </td>
+              <td>Payment Method  : </td>
               <td><?= $results['pmode'] ?></td>
             </tr>
           </tbody>
@@ -155,10 +156,10 @@ $results = $result->fetch_assoc();
         <table>
           <thead>
             <tr>
-              <th>Nama Produk</th>
+              <th>Product</th>
               <th>Qty</th>
-              <th>Harga Asli</th>
-              <th>Total per Item</th>
+              <th>Item Price</th>
+              <th>Total Price</th>
             </tr>
           </thead>
           <tbody>
@@ -193,12 +194,12 @@ $results = $result->fetch_assoc();
       $discountPercentage = ($discountAmount / $allTotal) * 100;
       ?>
       <div class="total">
-        <p>Diskon (<?= number_format($discountPercentage); ?>%)</p>
+        <p>Discount (<?= number_format($discountPercentage); ?>%)</p>
         <p>Rp. <?= number_format($discountAmount); ?> </p>
       </div>
       <div class="total">
         <strong>
-          <p>Total Bayar</p>
+          <p>Amount Paid</p>
         </strong>
         <strong>
           <p>Rp. <?= number_format($amount_paid); ?></p>
@@ -207,7 +208,7 @@ $results = $result->fetch_assoc();
     </div>
     <div class="receipt-footer">
       <p><?= date("d-m-Y"); ?></p>
-      <p>Admin Bloom & Bliss</p>
+      <p>Bloom & Bliss Admin</p>
     </div>
   </div>
   <script>

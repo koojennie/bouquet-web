@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Cetak Data Semua Pemesanan</title>
+  <title>Pemesanan</title>
   <link href="../../assets/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -14,13 +14,15 @@
 
   <div class="row">
     <div class="text-center">
-      <h3>DATA SELURUH PESANAN</h3>
+      <h1>Bloom & Bliss</h1>
+      <h2>Detail Seluruh Pemesanan</h2>
+      <br/>
       <table class="table table-bordered table-striped table-hover">
         <tbody>
 
           <thead>
             <tr>
-              <th>Name Customer</th>
+              <th>Customer Name</th>
               <th>Product (qty)</th>
               <th>Total Price</th>
               <th>Method Payment</th>
@@ -95,7 +97,7 @@
             <td colspan="8" class="text-right">
               <?= date("d-m-Y") ?>
               <br>
-              <u>Admin Website Bouquet<strong></u><br>
+              <u>Bloom & Bliss Admin<strong></u><br>
             </td>
           </tr>
         </tfoot>

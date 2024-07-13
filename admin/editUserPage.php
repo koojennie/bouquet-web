@@ -19,7 +19,7 @@ if(isset($id)) {
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
                 <h3 class="fw-bold mb-3">Edit User</h3>
-                <h6 class="op-7 mb-2">Manajemen User</h6>
+                <h6 class="op-7 mb-2">Manajemen user Bloom & Bliss</h6>
             </div>
         </div>
 
@@ -47,7 +47,7 @@ if(isset($id)) {
                                         <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" value="<?= $result['email_user'] ?>" required/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="no_telp">No Telp</label>
+                                        <label for="no_telp">Phone Number</label>
                                         <input type="text" class="form-control" id="no_telp" name="no_telp" placeholder="Enter No Telp" value="<?= $result['notelp_user'] ?>" required/>
                                     </div>
                                     <div class="form-group">

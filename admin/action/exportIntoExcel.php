@@ -10,7 +10,7 @@ function filterData(&$str) {
     if (strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"'; 
 } 
 
-$fileName = "Report Bloom & Bliss " . date("Y-m-d") . ".xls";
+$fileName = "Laporan Penjualan Bloom & Bliss " . date("Y-m-d") . ".xls";
 
 // define column
 $data = array(
@@ -18,13 +18,13 @@ $data = array(
     "Order Date",
     "Product Code",
     "Product",
-    "Harga",
+    "Price",
     "Qty",
-    "Total Harga"
+    "Total Price"
 );
 
 $date = date('j F Y');
-$excelData = "Laporan Penjualan Bloom & Bliss \n Print date :$date  \n\n"; // Adding header line
+$excelData = "Laporan Penjualan Bloom & Bliss \nPrint date :$date  \n\n"; // Adding header line
 $excelData .= implode("\t", array_values($data)) . "\n"; 
 
 // fetch data records from database and store in array

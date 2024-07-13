@@ -55,7 +55,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                             <ul class="menu food-nav-menu">
                                 <li><a href="#home">Home</a></li>
                                 <li><a href="#about">About</a></li>
-                                <li><a href="#catalouge">Catalouge</a></li>
+                                <li><a href="#catalog">Catalog</a></li>
                                 <li><a href="#review">Review</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
@@ -168,13 +168,13 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                 </div>
             </section>
 
-            <section class="our-menu section bg-pink repeat-img" id="catalouge">
+            <section class="our-menu section bg-pink repeat-img" id="catalog">
                 <div class="sec-wp">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="sec-title text-center mb-5">
-                                    <p class="sec-sub-title mb-3">Our Catalouge</p>
+                                    <p class="sec-sub-title mb-3">Our Catalog</p>
                                     <h2 class="h2-title">choose your own, <span>give it to your loved ones</span></h2>
                                 </div>
                             </div>
@@ -443,7 +443,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                                     <ul>
                                         <li><a href="#home" class="footer-active-menu">Home</a></li>
                                         <li><a href="#about">About</a></li>
-                                        <li><a href="#catalouge">Catalouge</a></li>
+                                        <li><a href="#catalog">Catalog</a></li>
                                         <li><a href="#review">Review</a></li>
                                         <li><a href="#contact">Contact</a></li>
                                     </ul>
@@ -456,16 +456,44 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
 
 
             <!-- Pop-up Modal -->
-            <ddiv id="popupModalPromo" class="modal">
+            <div id="popupModalPromo" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
                     <h2>Welcome to Bloom & Bliss!</h2>
-                    <p>Please login to continue.</p>
-                    <div class="modal-buttons-yang lain ">
-                        ini modal diskon
+                    <p>For every user get 10% discount with this promo code. Copy below!</p>
+                    <div class="modal-btn">
+                        <button id="promoBtn" value="WELCOMEMB10%" onclick="copyPromo()"><i class="fa-solid fa-copy"></i>   WELCOMEMB10%</button>
                     </div>
                 </div>
-            </ddiv>
+            </div>
+
+            <script>
+                var closeBtn = document.querySelector('.close-btn');
+
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+                
+                function copyPromo() {
+                    // Create a temporary textarea to hold the text to copy
+                    var tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = "WELCOMEMB10%";
+                    document.body.appendChild(tempTextarea);
+
+                    // Select the text field
+                    tempTextarea.select();
+                    tempTextarea.setSelectionRange(0, 99999); // For mobile devices
+
+                    // Copy the text inside the text field
+                    navigator.clipboard.writeText(tempTextarea.value);
+
+                    // Alert the copied text
+                    alert("Copied the text " + tempTextarea.value);
+
+                    // Remove the temporary textarea
+                    document.body.removeChild(tempTextarea);
+                }
+            </script>
         </div>
     </div>
 

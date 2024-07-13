@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
                 <h3 class="fw-bold mb-3">Edit Product</h3>
-                <h6 class="op-7 mb-2">Free Bootstrap 5 Admin Dashboard</h6>
+                <h6 class="op-7 mb-2">Manajemen produk Bloom & Bliss</h6>
             </div>
         </div>
 
@@ -40,23 +40,23 @@ if (isset($_GET['id'])) {
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                         <input type="hidden" name="bouquet_id" value="<?= $result['bouquet_id'] ?>">
-                                            <label for="bouquetCode">Code Bouqeut</label>
+                                            <label for="bouquetCode">Code</label>
                                             <input type="text" class="form-control" id="bouquetCode"
                                                 placeholder="Enter code" name="bouquet_code" value="<?= $result['bouquet_code'] ?>"
                                                 required />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="bouquetName">Name Bouqeut</label>
+                                        <label for="bouquetName">Name</label>
                                         <input type="text" class="form-control" id="bouquetName"
                                             placeholder="Enter Name" name="bouquet_name" value="<?= $result['bouquet_name'] ?>" required />
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Image Bouquet</label>
+                                        <label for="exampleInputName1">Image</label>
                                         <input type="file" class="form-control" id="exampleInputName1" value=""
                                             name="bouquet_image" <?= empty($result['bouquet_image']) ? 'required' : '' ?>>
                                     </div>
-                                    <small id="emailHelp2" class="form-text text-muted">Preview image</small>
+                                    <small id="emailHelp2" class="form-text text-muted">Preview Image</small>
                                     <div class="form-group">
                                         <img src="../assets/images/flowers/<?= $result['bouquet_image'] ?>"
                                             class="img-thumbnail" style="max-width:120px" alt="">
@@ -69,7 +69,7 @@ if (isset($_GET['id'])) {
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label for="bouquetType">Type Bouquet</label>
+                                        <label for="bouquetType">Type</label>
                                         <input type="text" class="form-control" id="bouquetType"
                                             placeholder="Enter type" name="bouquet_type" value="<?= $result['bouquet_type'] ?>" />
                                     </div>
@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="bouquetCategory">Category Bouqeut</label>
+                                        <label for="bouquetCategory">Category</label>
                                         <select class="form-select form-control" name="bouquet_category" id="bouquetCategory">
                                             <option value="wedding" <?= $result['bouquet_category'] == 'wedding' ? "selected" : "" ?>>Wedding</option>
                                             <option value="graduation" <?= $result['bouquet_category'] == 'graduation' ? "selected" : "" ?>>Graduation</option>

@@ -8,7 +8,7 @@ include ('layout/header.php');
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
                 <h3 class="fw-bold mb-3">Add Product</h3>
-                <h6 class="op-7 mb-2">Manajemen produk Bouquet</h6>
+                <h6 class="op-7 mb-2">Manajemen produk Bloom & Bliss</h6>
             </div>
         </div>
 
@@ -25,19 +25,19 @@ include ('layout/header.php');
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                         <input type="hidden" name="bouquet_id" value="">
-                                            <label for="bouquetCode">Code Bouqeut</label>
+                                            <label for="bouquetCode">Code</label>
                                             <input type="text" class="form-control" id="bouquetCode"
                                                 placeholder="Enter code" name="bouquet_code" value=""
                                                 required />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="bouquetName">Name Bouqeut</label>
+                                        <label for="bouquetName">Name</label>
                                         <input type="text" class="form-control" id="bouquetName"
                                             placeholder="Enter Name" name="bouquet_name" value="" required />
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Image Bouquet</label>
+                                        <label for="exampleInputName1">Image</label>
                                         <input type="file" class="form-control" id="exampleInputName1" value=""
                                             name="bouquet_image" required>
                                     </div>
@@ -49,7 +49,7 @@ include ('layout/header.php');
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label for="bouquetType">Type Bouquet</label>
+                                        <label for="bouquetType">Type</label>
                                         <input type="text" class="form-control" id="bouquetType"
                                             placeholder="Enter type" name="bouquet_type" value="" />
                                     </div>
@@ -65,7 +65,7 @@ include ('layout/header.php');
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="bouquetCategory">Category Bouqeut</label>
+                                        <label for="bouquetCategory">Category</label>
                                         <select class="form-select form-control" name="bouquet_category" id="bouquetCategory">
                                             <option value="wedding">Wedding</option>
                                             <option value="graduation">Graduation</option>

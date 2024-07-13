@@ -8,7 +8,7 @@
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
       <div>
         <h3 class="fw-bold mb-3">Order</h3>
-        <h6 class="op-7 mb-2">Manajemen Order Bloom & Bliss</h6>
+        <h6 class="op-7 mb-2">Manajemen order Bloom & Bliss</h6>
       </div>
     </div>
     <div class="row">
@@ -28,7 +28,7 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Name Customer</th>
+                    <th>Customer Name</th>
                     <th>Product (qty)</th>
                     <th>Total Price</th>
                     <th>Payment</th>

@@ -51,7 +51,7 @@ switch ($month) {
 <html>
 
 <head>
-  <title>Cetak Data Semua Pemesanan</title>
+  <title>Pemesanan Per Bulan</title>
   <link href="../../assets/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -63,13 +63,15 @@ switch ($month) {
 
   <div class="row">
     <div class="text-center">
-      <h3>DATA BULANAN PESANAN Bloom & Bliss </h3>
+      <h1>Bloom & Bliss</h1>
+      <h2>Detail Pemesanan Per Bulan</h2>
       <h5>BULAN <?= $monthName ?> TAHUN <?= $year ?></h5>
+      <br/>
       <table class="table table-bordered table-striped table-hover">
         <tbody>
           <thead>
             <tr>
-              <th>Name Customer</th>
+              <th>Customer Name</th>
               <th>Product (qty)</th>
               <th>Total Price</th>
               <th>Method Payment</th>
@@ -147,7 +149,7 @@ switch ($month) {
             <td colspan="8" class="text-right">
               <?= date("d-m-Y") ?>
               <br>
-              <u>Admin Website Bouquet<strong></u><br>
+              <u>Bloom & Bliss Admin<strong></u><br>
             </td>
           </tr>
         </tfoot>
