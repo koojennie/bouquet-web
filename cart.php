@@ -151,9 +151,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                     </td>
                     <td><i class="fa-light fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($row['total_price']); ?></td>
                     <td>
-                      <a href="action.php?remove=<?= $row['cart_id'] ?>" class="text-danger lead"
-                        onclick="return confirm('Are you sure want to remove this item?');"><i
-                          class="fa-regular fa-trash"></i></a>
+                      <a href="javascript:void(0);" class="text-danger lead"
+                        onclick="confirmRemoval('action.php?remove=<?= $row['cart_id'] ?>');"><i class="fa-regular fa-trash"></i></a>
                     </td>
                   </tr>
                   <?php $grand_total += $row['total_price']; ?>
@@ -182,9 +181,28 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
 
 
 
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
+
+  <script>
+    function confirmRemoval(url) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to remove this item?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#fb6f92',
+        cancelButtonColor: '#bbb',
+        confirmButtonText: 'Yes, remove it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = url;
+        }
+      });
+    }
+  </script>
+
 
   <script type="text/javascript">
     $(document).ready(function () {
