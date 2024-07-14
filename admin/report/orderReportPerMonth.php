@@ -63,7 +63,7 @@ switch ($month) {
 
   <div class="row">
     <div class="text-center">
-      <h1>Bloom & Bliss</h1>
+      <img src="../../assets/images/header-report.png" alt="logo" width="300">
       <h2>Detail Pemesanan Per Bulan</h2>
       <h5>BULAN <?= $monthName ?> TAHUN <?= $year ?></h5>
       <br/>

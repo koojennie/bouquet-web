@@ -62,6 +62,8 @@ $allItems = implode(', ', $items);
   <link rel="stylesheet" href="style.css">
   <!-- favicon -->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+  <!-- sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -107,7 +109,6 @@ $allItems = implode(', ', $items);
             <div class="form-group mt-3">
                 <h6>Promo Code</h6>
                 <input type="text" name="promo" class="form-control" id="promo-code" placeholder="Enter Promo Code Here...">
-                
             </div>
             <div class="form-group mt-3">
                 <input type="submit" name="submit" value="Place Order" class="btn btn-danger btn-block">
@@ -124,15 +125,28 @@ $allItems = implode(', ', $items);
   <script type="text/javascript">
     $(document).ready(function () {
 
-      // Sending Form data to the server
+      // sweet alert untuk submit form
       $("#placeOrder").submit(function (e) {
         e.preventDefault();
-        $.ajax({
-          url: 'action.php',
-          method: 'post',
-          data: $('form').serialize() + "&action=order",
-          success: function (response) {
-            $("#order").html(response);
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'Do you want to place this order?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#fb6f92', // Ubah warna tombol OK di sini
+          cancelButtonColor: '#bbb',
+          confirmButtonText: 'Yes, place order!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // kirim data dari form ke server dengan ajax
+            $.ajax({
+              url: 'action.php',
+              method: 'post',
+              data: $('form').serialize() + "&action=order",
+              success: function (response) {
+                $("#order").html(response);
+              }
+            });
           }
         });
       });
@@ -153,40 +167,44 @@ $allItems = implode(', ', $items);
         });
       }
     });
-  </script>
 
-  <script>
-      document.getElementById('promo-code').addEventListener('keyup', function(event) {
-          if (event.key === 'Enter') {
-              let promoCode = this.value;
-              let grandTotal = <?= $grand_total; ?>;
+    document.getElementById('promo-code').addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') {
+        let promoCode = this.value;
+        let grandTotal = <?= $grand_total; ?>;
 
-              // Buat AJAX request untuk memeriksa dan menghitung diskon
-              let xhr = new XMLHttpRequest();
-              xhr.open('POST', 'apply_promo.php', true);
-              xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-              xhr.onload = function() {
-                  if (xhr.status === 200) {
-                      let response = JSON.parse(xhr.responseText);
-                      if (response.success) {
-                          document.getElementById('total-amount').innerText = response.new_total;
-                          document.getElementById('total-amount-value').value = response.new_total_value;
-                          document.getElementById('discount').value = response.discount;
-                      } else {
-                          alert(response.message);
-                      }
-                  }
-              };
-              xhr.send('promo=' + promoCode + '&grand_total=' + grandTotal);
+        // buat ajax req untuk diskon
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'apply_promo.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            let response = JSON.parse(xhr.responseText);
+            if (response.success) {
+              document.getElementById('total-amount').innerText = response.new_total;
+              document.getElementById('total-amount-value').value = response.new_total_value;
+              document.getElementById('discount').value = response.discount;
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Invalid promo code',
+                text: 'Please enter the right promo code',
+                confirmButtonColor: '#fb6f92' 
+              });
+            }
           }
-      });
+        };
+        xhr.send('promo=' + promoCode + '&grand_total=' + grandTotal);
+      }
+    });
 
-      document.getElementById('placeOrder').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Mencegah form submit
-        }
-      });
+    document.getElementById('placeOrder').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // mencegah form submit sendiri
+      }
+    });
   </script>
+
 </body>
 
 </html>

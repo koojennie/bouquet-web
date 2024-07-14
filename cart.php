@@ -88,18 +88,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <div class="row">
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div style="display:<?php if (isset($_SESSION['showAlert'])) {
-            echo $_SESSION['showAlert'];
-          } else {
-            echo 'none';
-          }
-          unset($_SESSION['showAlert']); ?>" class="alert alert-success alert-dismissible mt-3">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong><?php if (isset($_SESSION['message'])) {
-              echo $_SESSION['message'];
-            }
-            unset($_SESSION['showAlert']); ?></strong>
-          </div>
+          <div id="alert-container"></div>
           <h4 class="text-h4 text-center text-info m-0">Products in your cart!</h4>
           <div class="table-responsive mt-2">
             <table class="table table-bordered table-striped text-center">
@@ -112,8 +101,8 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                   <th>Quantity</th>
                   <th>Total Price</th>
                   <th>
-                    <a href="action.php?clear=all" class="badge-danger badge p-1"
-                      onclick="return confirm('Are you sure want to clear your cart?');"><i
+                    <a href="javascript:void(0);" class="badge-danger badge p-1"
+                      onclick="confirmClearCart('action.php?clear=all');"><i
                         class="fa-solid fa-trash-list"></i>&nbsp;&nbsp;Clear Cart</a>
                   </th>
                 </tr>
@@ -166,8 +155,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                   <td><b><i class="fa-solid fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($grand_total, 2); ?></b>
                   </td>
                   <td>
-                    <a href="checkout.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i
-                        class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Checkout</a>
+                    <a href="javascript:void(0);" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>" onclick="confirmCheckout();"><i class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Checkout</a>
                   </td>
                 </tr>
               </tbody>
@@ -201,6 +189,48 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
         }
       });
     }
+
+    function confirmClearCart(url) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to clear your cart?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#fb6f92',
+        cancelButtonColor: '#bbb',
+        confirmButtonText: 'Yes, clear it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = url;
+        }
+      });
+    }
+
+    function confirmCheckout() {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to proceed to checkout?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#fb6f92', // Ubah warna tombol OK di sini
+        cancelButtonColor: '#bbb',
+        confirmButtonText: 'Yes, proceed!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = 'checkout.php';
+        }
+      });
+    }
+
+    <?php if (isset($_SESSION['showAlert']) && $_SESSION['showAlert'] == 'block') { ?>
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: '<?php echo $_SESSION['message']; ?>',
+        confirmButtonColor: '#fb6f92'
+      });
+      <?php unset($_SESSION['showAlert']); unset($_SESSION['message']); ?>
+    <?php } ?>
   </script>
 
 

@@ -39,7 +39,7 @@
 <script src="../assets/admin/js/plugin/jsvectormap/world.js"></script>
 
 <!-- Sweet Alert -->
-<script src="../assets/admin/js/plugin/sweetalert/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- Kaiadmin JS -->
 <script src="../assets/admin/js/kaiadmin.min.js"></script>
@@ -48,107 +48,88 @@
     $(document).ready(function () {
         // Inisialisasi DataTables
         $("#katalog-datatables").DataTable({
-            // columnDefs: [{ width: '10%', targets: 0 }]
+        // columnDefs: [{ width: '10%', targets: 0 }]
         });
 
-        // Tampilkan SweetAlert berdasarkan pesan successs
+        // Tampilkan SweetAlert berdasarkan pesan success
         const urlParams = new URLSearchParams(window.location.search);
         const message = urlParams.get('message');
         const reason = urlParams.get('reason');
 
         if (message === 'success') {
-            swal("Success!", "", {
-                icon: "success",
-                buttons: {
-                    confirm: {
-                        className: "btn btn-success",
-                    },
-                },
-            });
+        Swal.fire({
+            title: 'Success!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#fb6f92'
+        });
         }
 
         // tampilkan sweet alert untuk konfirmasi delete
-        // $(".delete-button").click(function (e) {
-        //     e.preventDefault();
-        //     const id = $(this).data('id');
-
-        //     swal({
-        //         title: "Apakah ada yakin ingin menghapus?",
-        //         icon: "warning",
-        //         buttons: true,
-        //         dangerMode: true,
-        //     })
-        //     .then((willDelete) => {
-        //         if (willDelete) {
-        //             $.ajax({
-        //                 // lakukan request dengan ajax
-        //                 url: "action/deleteProductAction.php",
-        //                 type: "POST",
-        //                 data: {id: id},
-        //                 success: function (response) {
-        //                     swal("Success! produk berhasil dihapus!", {
-        //                         icon: "success",
-        //                     }).then(() => {
-        //                         location.reload();
-        //                     });
-        //                 },
-        //                 error: function () {
-        //                     swal("Error!", "Error ketika menghapus data", "error");
-        //                 }
-        //             })
-        //         } else {
-        //             swal("Gagal dihapus");
-        //         }
-        //     })
-        // })
-
         $(".delete-button").click(function (e) {
-            e.preventDefault();
-            const id = $(this).data('id');
-            const type = $(this).data('type'); // menentukan tipe, bisa 'product' atau 'user'
+        e.preventDefault();
+        const id = $(this).data('id');
+        const type = $(this).data('type'); // menentukan tipe, bisa 'product' atau 'user'
 
+        Swal.fire({
+            title: 'Apakah Anda yakin ingin menghapus?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batalkan',
+            confirmButtonColor: '#fb6f92',
+            dangerMode: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+            let url = "";
+            if (type === "product") {
+                url = "action/deleteProductAction.php";
+            } else if (type === "user") {
+                url = "action/deleteUserAction.php";
+            } else if (type === "order"){
+                url = "action/deleteOrderAction.php";
+            }
 
-            swal({
-                title: "Apakah Anda yakin ingin menghapus?",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    let url = "";
-                    if (type === "product") {
-                        url = "action/deleteProductAction.php";
-                    } else if (type === "user") {
-                        url = "action/deleteUserAction.php";
-                    } else if (type === "order"){
-                        url = "action/deleteOrderAction.php";
-                    }
-
-                    $.ajax({
-                        // lakukan request dengan ajax
-                        url: url,
-                        type: "POST",
-                        data: {id: id},
-                        success: function (response) {
-                            swal(`Success! ${type} berhasil dihapus!`, {
-                                icon: "success",
-                            }).then(() => {
-                                location.reload();
-                            });
-                        },
-                        error: function () {
-                            swal("Error!", `Error ketika menghapus ${type}`, "error");
-                        }
-                    });
-                } else {
-                    swal("Gagal dihapus");
+            $.ajax({
+                // lakukan request dengan ajax
+                url: url,
+                type: "POST",
+                data: {id: id},
+                success: function (response) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: `${type} berhasil dihapus!`,
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92',
+                }).then(() => {
+                    location.reload();
+                });
+                },
+                error: function () {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `Error ketika menghapus ${type}`,
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92',
+                });
                 }
             });
+            } else {
+            Swal.fire({
+                title: 'Cancelled',
+                text: `${type} tidak jadi dihapus!`,
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#fb6f92',
+            });
+            }
+        });
         });
     });
+    </script>
 
-</script>
 </body>
 
 </html>

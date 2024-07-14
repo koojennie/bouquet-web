@@ -116,7 +116,7 @@ $results = $result->fetch_assoc();
 <body>
   <div class="receipt">
     <div class="receipt-header">
-      <h1>Bloom & Bliss</h1>
+      <img src="../../assets/images/header-report.png" alt="logo" width="300">
       <h2>Invoice</h2>
       <h3>Invoice No <?= $order_id ?></h3>
     </div>

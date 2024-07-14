@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="text-center">
-      <h1>Bloom & Bliss</h1>
+      <img src="../../assets/images/header-report.png" alt="logo" width="300">
       <h2>Detail Seluruh Pemesanan</h2>
       <br/>
       <table class="table table-bordered table-striped table-hover">
