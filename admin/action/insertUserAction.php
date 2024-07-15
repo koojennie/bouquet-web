@@ -28,10 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("isssss", $id_user, $usn_user, $nama_user, $email_user, $notelp_user, $pw_user);
         $stmt->execute();
         $stmt->close();
+        
 
         header("location:../user.php?message=success");
     } else {
-        header("location:../addUserPage.php?message=error&reason=avaiableUser");
+        header("location:../addUserPage.php?message=error&reason=availableUser");
     }
 } else {
     header('location:../user.php');

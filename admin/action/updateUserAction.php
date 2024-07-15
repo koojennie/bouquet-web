@@ -25,10 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         echo "Data pengguna berhasil diubah.";
-        header("Location: ../user.php");
+        header("Location: ../user.php?message=success");
         exit();
     } else {
         echo "Terjadi kesalahan saat mengubah data pengguna.";
+        header("Location: ../user.php?message=error&reason=userNoChanged");
     }
 }
 ?>
