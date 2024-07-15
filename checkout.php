@@ -168,10 +168,22 @@ $allItems = implode(', ', $items);
       }
     });
 
+    let usedPromoCodes = [];
+
     document.getElementById('promo-code').addEventListener('keyup', function(event) {
       if (event.key === 'Enter') {
-        let promoCode = this.value;
+        let promoCode = this.value.trim();
         let grandTotal = <?= $grand_total; ?>;
+
+        if (usedPromoCodes.includes(promoCode)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Promo code already used',
+            text: 'You have already used this promo code. Please enter a different one.',
+            confirmButtonColor: '#fb6f92' 
+          });
+          return;
+        }
 
         // buat ajax req untuk diskon
         let xhr = new XMLHttpRequest();
@@ -181,9 +193,16 @@ $allItems = implode(', ', $items);
           if (xhr.status === 200) {
             let response = JSON.parse(xhr.responseText);
             if (response.success) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Promo code succesfully applied',
+                text: 'Great! You get 10% discount',
+                confirmButtonColor: '#fb6f92'
+              })
               document.getElementById('total-amount').innerText = response.new_total;
               document.getElementById('total-amount-value').value = response.new_total_value;
               document.getElementById('discount').value = response.discount;
+              usedPromoCodes.push(promoCode); // Tambahkan kode promo ke daftar yang sudah digunakan
             } else {
               Swal.fire({
                 icon: 'error',

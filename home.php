@@ -497,7 +497,6 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
         </div>
     </div>
 
-
     <!-- jquery  -->
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <!-- bootstrap -->
@@ -526,17 +525,10 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <script src="assets/js/ScrollTrigger.min.js"></script>
     <!-- scroll to plugin  -->
     <script src="assets/js/ScrollToPlugin.min.js"></script>
-    <!-- rellax  -->
-    <!-- <script src="assets/js/rellax.min.js"></script> -->
-    <!-- <script src="assets/js/rellax-custom.js"></script> -->
     <!-- smooth scroll  -->
     <script src="assets/js/smooth-scroll.js"></script>
     <!-- custom js  -->
     <script src="main.js"></script>
-
-    <!-- js library tanpa diubah, dari CDN -->
-    <!-- jQuery library -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
 
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -545,10 +537,6 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript">
-        // document.addEventListener("DOMContentLoaded", function(){
-        //     console.log("ini ketika ke load bakal muncul");
-
-        // })
 
         $(document).ready(function () {
             $('#popupModalPromo').css('display', 'block');
