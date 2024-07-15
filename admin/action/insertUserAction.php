@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->close();
 
-        header("location:../user.php?message=success");
+        header("location:../user.php?message=success&type=adduser");
     } else {
         header("location:../addUserPage.php?message=error&reason=avaiableUser");
     }

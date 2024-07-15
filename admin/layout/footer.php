@@ -48,87 +48,100 @@
     $(document).ready(function () {
         // Inisialisasi DataTables
         $("#katalog-datatables").DataTable({
-        // columnDefs: [{ width: '10%', targets: 0 }]
+            // columnDefs: [{ width: '10%', targets: 0 }]
         });
 
         // Tampilkan SweetAlert berdasarkan pesan success
         const urlParams = new URLSearchParams(window.location.search);
         const message = urlParams.get('message');
         const reason = urlParams.get('reason');
+        const type = urlParams.get('type');
 
         if (message === 'success') {
-        Swal.fire({
-            title: 'Success!',
-            icon: 'success',
-            confirmButtonText: 'OK',
-            confirmButtonColor: '#fb6f92'
-        });
+            if (type === 'adduser') {
+                Swal.fire({
+                    title: 'Success!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92'
+                }).then(() => {
+                    // console.log("berhasil di update");
+                    // Hapus parameter URL setelah berhasil
+                    const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: newURL }, '', newURL);
+                });
+            } else if(type=='updateuser'){
+                
+            }
         }
+
 
         // tampilkan sweet alert untuk konfirmasi delete
         $(".delete-button").click(function (e) {
-        e.preventDefault();
-        const id = $(this).data('id');
-        const type = $(this).data('type'); // menentukan tipe, bisa 'product' atau 'user'
+            e.preventDefault();
+            const id = $(this).data('id');
+            const type = $(this).data('type'); // menentukan tipe, bisa 'product' atau 'user'
 
-        Swal.fire({
-            title: 'Apakah Anda yakin ingin menghapus?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batalkan',
-            confirmButtonColor: '#fb6f92',
-            dangerMode: true,
-        }).then((result) => {
-            if (result.isConfirmed) {
-            let url = "";
-            if (type === "product") {
-                url = "action/deleteProductAction.php";
-            } else if (type === "user") {
-                url = "action/deleteUserAction.php";
-            } else if (type === "order"){
-                url = "action/deleteOrderAction.php";
-            }
+            Swal.fire({
+                title: 'Apakah Anda yakin ingin menghapus?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batalkan',
+                confirmButtonColor: '#fb6f92',
+                dangerMode: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let url = "";
+                    if (type === "product") {
+                        url = "action/deleteProductAction.php";
+                    } else if (type === "user") {
+                        url = "action/deleteUserAction.php";
+                    } else if (type === "order") {
+                        url = "action/deleteOrderAction.php";
+                    }
 
-            $.ajax({
-                // lakukan request dengan ajax
-                url: url,
-                type: "POST",
-                data: {id: id},
-                success: function (response) {
-                Swal.fire({
-                    title: 'Success!',
-                    text: `${type} berhasil dihapus!`,
-                    icon: 'success',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#fb6f92',
-                }).then(() => {
-                    location.reload();
-                });
-                },
-                error: function () {
-                Swal.fire({
-                    title: 'Error!',
-                    text: `Error ketika menghapus ${type}`,
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#fb6f92',
-                });
+                    $.ajax({
+                        // lakukan request dengan ajax
+                        url: url,
+                        type: "POST",
+                        data: { id: id },
+                        success: function (response) {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: `${type} berhasil dihapus!`,
+                                icon: 'success',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#fb6f92',
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function () {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: `Error ketika menghapus ${type}`,
+                                icon: 'error',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#fb6f92',
+                            });
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Cancelled',
+                        text: `${type} tidak jadi dihapus!`,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#fb6f92',
+                    });
                 }
             });
-            } else {
-            Swal.fire({
-                title: 'Cancelled',
-                text: `${type} tidak jadi dihapus!`,
-                icon: 'error',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#fb6f92',
-            });
-            }
         });
-        });
+
+
     });
-    </script>
+</script>
 
 </body>
 
