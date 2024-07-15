@@ -48,65 +48,61 @@
     $(document).ready(function () {
         // Inisialisasi DataTables
         $("#katalog-datatables").DataTable({
-        // columnDefs: [{ width: '10%', targets: 0 }]
+            // columnDefs: [{ width: '10%', targets: 0 }]
         });
 
         // Tampilkan SweetAlert berdasarkan pesan success
         const urlParams = new URLSearchParams(window.location.search);
         const message = urlParams.get('message');
         const reason = urlParams.get('reason');
+        const type = urlParams.get('type');
 
         if (message === 'success') {
-        Swal.fire({
-            title: 'Success!',
-            icon: 'success',
-            confirmButtonText: 'OK',
-            confirmButtonColor: '#fb6f92'
-        });
-        }
-
-        // tampilkan sweet alert untuk konfirmasi delete
-        $(".delete-button").click(function (e) {
-        e.preventDefault();
-        const id = $(this).data('id');
-        const type = $(this).data('type'); // menentukan tipe, bisa 'product' atau 'user'
-
-        Swal.fire({
-            title: 'Apakah Anda yakin ingin menghapus?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batalkan',
-            confirmButtonColor: '#fb6f92',
-            dangerMode: true,
-        }).then((result) => {
-            if (result.isConfirmed) {
-            let url = "";
-            if (type === "product") {
-                url = "action/deleteProductAction.php";
-            } else if (type === "user") {
-                url = "action/deleteUserAction.php";
-            } else if (type === "order"){
-                url = "action/deleteOrderAction.php";
-            }
-
-            $.ajax({
-                // lakukan request dengan ajax
-                url: url,
-                type: "POST",
-                data: {id: id},
-                success: function (response) {
+            if (type === 'adduser') {
                 Swal.fire({
                     title: 'Success!',
-                    text: `${type} berhasil dihapus!`,
                     icon: 'success',
+                    text: 'pengguna berhasil ditambahkan',
                     confirmButtonText: 'OK',
-                    confirmButtonColor: '#fb6f92',
+                    confirmButtonColor: '#fb6f92'
                 }).then(() => {
-                    location.reload();
+                    const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: newURL }, '', newURL);
                 });
-                },
-                error: function () {
+            } else if(type=='updateuser'){
+                Swal.fire({
+                    title: 'Success!',
+                    icon: 'success',
+                    text: 'pengguna berhasil diupdate',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92'
+                }).then(() => {
+                    const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: newURL }, '', newURL);
+                });
+            } else if(type=='addproduct'){
+                Swal.fire({
+                    title: 'Success!',
+                    icon: 'success',
+                    text: 'produk berhasil ditambahkan',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92'
+                }).then(() => {
+                    const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: newURL }, '', newURL);
+                });
+            } else if(type=='updateproduct'){
+                Swal.fire({
+                    title: 'Success!',
+                    icon: 'success',
+                    text: 'produk berhasil diupdate',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92'
+                }).then(() => {
+                    const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: newURL }, '', newURL);
+                });
+            } else {
                 Swal.fire({
                     title: 'Error!',
                     text: `Error ketika menghapus ${type}`,
@@ -114,23 +110,76 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#fb6f92',
                 });
+            }
+        }
+
+
+        // tampilkan sweet alert untuk konfirmasi delete
+        $(".delete-button").click(function (e) {
+            e.preventDefault();
+            const id = $(this).data('id');
+            const type = $(this).data('type'); // menentukan tipe, bisa 'product' atau 'user'
+
+            Swal.fire({
+                title: 'Apakah Anda yakin ingin menghapus?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batalkan',
+                confirmButtonColor: '#fb6f92',
+                dangerMode: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let url = "";
+                    if (type === "product") {
+                        url = "action/deleteProductAction.php";
+                    } else if (type === "user") {
+                        url = "action/deleteUserAction.php";
+                    } else if (type === "order") {
+                        url = "action/deleteOrderAction.php";
+                    }
+
+                    $.ajax({
+                        // lakukan request dengan ajax
+                        url: url,
+                        type: "POST",
+                        data: { id: id },
+                        success: function (response) {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: `${type} berhasil dihapus!`,
+                                icon: 'success',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#fb6f92',
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function () {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: `Error ketika menghapus ${type}`,
+                                icon: 'error',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#fb6f92',
+                            });
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Cancelled',
+                        text: `${type} tidak jadi dihapus!`,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#fb6f92',
+                    });
                 }
             });
-            } else {
-            Swal.fire({
-                title: 'Cancelled',
-                text: `${type} tidak jadi dihapus!`,
-                icon: 'error',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#fb6f92',
-            });
-            }
-        });
         });
 
         
     });
-    </script>
+</script>
 
 </body>
 

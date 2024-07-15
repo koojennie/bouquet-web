@@ -1,4 +1,27 @@
-<?php include ("layout/header.php"); ?>
+<?php include ("layout/header.php");
+
+session_start(); // Mulai sesi
+
+$message = '';
+$message_type = '';
+
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    $message_type = $_SESSION['message_type'];
+
+    // Hapus pesan dari sesi setelah ditampilkan
+    unset($_SESSION['message']);
+    unset($_SESSION['message_type']);
+
+}
+
+
+
+
+?>
+
+
+
 
 <div class="container">
     <div class="page-inner">
@@ -47,11 +70,11 @@
                                             <td><?= $row['email_user'] ?></td>
                                             <td><?= $row['notelp_user'] ?></td>
                                             <td>
-                                                <a href="editUserPage.php?id=<?= $row['id_user'] ?>" 
-                                                    class="btn btn-sm btn-warning btn-round"><i class="fas fa-edit" 
+                                                <a href="editUserPage.php?id=<?= $row['id_user'] ?>"
+                                                    class="btn btn-sm btn-warning btn-round"><i class="fas fa-edit"
                                                         aria-hidden="true"></i></a>
                                                 <button class="btn btn-sm btn-danger btn-round delete-button"
-                                                    data-id="<?php echo $row['id_user']; ?>" data-type="user"><i 
+                                                    data-id="<?php echo $row['id_user']; ?>" data-type="user"><i
                                                         class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>

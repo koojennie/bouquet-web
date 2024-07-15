@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->close();
 
-        header("location:../product.php?message=success");
+        header("location:../product.php?message=success&type=updateproduct");
     }
 
 

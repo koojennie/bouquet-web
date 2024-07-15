@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->execute();
                     $stmt->close();
 
-                    header("location:../product.php?message=success");
+                    header("location:../product.php?message=success&type=addproduct");
 
                 } else {
                     header("location:../product.php?message=$error");
