@@ -105,7 +105,7 @@ $resulOrders = $stmtOrders->get_result()->num_rows;
                                         </div>
                                         <div class="col col-stats ms-3 ms-sm-0">
                                             <div class="numbers">
-                                                <p class="card-category">Order</p>
+                                                <p class="card-category">Orders</p>
                                                 <h4 class="card-title"><?= $resulOrders ?></h4>
                                             </div>
                                         </div>

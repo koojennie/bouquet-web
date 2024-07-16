@@ -62,7 +62,7 @@
                 Swal.fire({
                     title: 'Success!',
                     icon: 'success',
-                    text: 'pengguna berhasil ditambahkan',
+                    text: 'User berhasil ditambahkan',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#fb6f92'
                 }).then(() => {
@@ -73,7 +73,7 @@
                 Swal.fire({
                     title: 'Success!',
                     icon: 'success',
-                    text: 'pengguna berhasil diupdate',
+                    text: 'User berhasil diupdate',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#fb6f92'
                 }).then(() => {
@@ -84,7 +84,7 @@
                 Swal.fire({
                     title: 'Success!',
                     icon: 'success',
-                    text: 'produk berhasil ditambahkan',
+                    text: 'Produk berhasil ditambahkan',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#fb6f92'
                 }).then(() => {
@@ -95,7 +95,7 @@
                 Swal.fire({
                     title: 'Success!',
                     icon: 'success',
-                    text: 'produk berhasil diupdate',
+                    text: 'Produk berhasil diupdate',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#fb6f92'
                 }).then(() => {
@@ -105,7 +105,7 @@
             } else {
                 Swal.fire({
                     title: 'Error!',
-                    text: `Error ketika menghapus ${type}`,
+                    text: `Terdapat kesalahan ketika menghapus`,
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#fb6f92',
@@ -131,11 +131,11 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     let url = "";
-                    if (type === "product") {
+                    if (type === "Produk") {
                         url = "action/deleteProductAction.php";
-                    } else if (type === "user") {
+                    } else if (type === "User") {
                         url = "action/deleteUserAction.php";
-                    } else if (type === "order") {
+                    } else if (type === "Order") {
                         url = "action/deleteOrderAction.php";
                     }
 

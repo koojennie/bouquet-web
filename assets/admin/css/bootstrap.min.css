@@ -5447,8 +5447,8 @@ fieldset:disabled .btn {
 .page-link.active {
     z-index: 3;
     color: var(--bs-pagination-active-color);
-    background-color: var(--bs-pagination-active-bg);
-    border-color: var(--bs-pagination-active-border-color)
+    background-color: #fb6f92;
+    border-color: #fb6f92
 }
 
 .disabled>.page-link,

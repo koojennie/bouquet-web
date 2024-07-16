@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     } else {
-        header("location:../addProductPage.php?message=error&reason=avaiableBouquet");
+        header("location:../addProductPage.php?message=error&reason=availableBouquet");
     }
 } else {
     header('location:../product.php');
