@@ -31,10 +31,32 @@ $user = getUserById($id);
     <link rel="stylesheet" href="style.css">
     <!-- favicon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body class="body-fixed">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .body-fixed {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body, html {
+            overflow-x: visible;
+        }
+    </style>
     <div class="container">
         <div class="page-inner">
             </div>
@@ -91,5 +113,38 @@ $user = getUserById($id);
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+        // Tampilkan SweetAlert berdasarkan pesan success
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        const type = urlParams.get('type');
+
+        if (message === 'success') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Profile updated successfully.',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#fb6f92',
+            }).then(() => {
+                const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.replaceState({ path: newURL }, '', newURL);
+            });
+        } else if (message === 'error') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error updating profile.',
+                text: 'Profile update failed.',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#fb6f92',
+            }).then(() => {
+                const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.replaceState({ path: newURL }, '', newURL);
+            });
+        }
+    });
+    </script>
 </body>
 </html>

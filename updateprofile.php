@@ -25,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($stmt->execute()) {
-        echo "<script>alert('Profile updated successfully'); window.location.href = 'home.php';</script>";
+        header("location: profile.php?message=success");
     } else {
-        echo "<script>alert('Error updating profile'); window.location.href = 'profile.php';</script>";
+        header("location: profile.php?message!=success");
     }
 
     $stmt->close(); // pastikan untuk menutup statement setelah selesai
