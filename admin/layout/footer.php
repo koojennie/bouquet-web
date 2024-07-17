@@ -65,13 +65,11 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#fb6f92'
                 }).then(() => {
-                    // console.log("berhasil di update");
-                    // Hapus parameter URL setelah berhasil
                     const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
                     window.history.replaceState({ path: newURL }, '', newURL);
                 });
             } else if(type=='updateuser'){
-                
+
             }
         }
 
