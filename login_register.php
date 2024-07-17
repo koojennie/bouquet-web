@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             }
         } else {
-            echo "<script>alert('Login failed. Please check your email and password.');</script>";
+            header("location: login_register.php?message=error&type=errorlogin");
         }
     } elseif (isset($_POST['btnRegister'])) {
         $username = $_POST['username'];
@@ -38,9 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Cekregister = register($username, $name, $email, $notelp, $password);
 
         if ($Cekregister) {
-            echo "<script>alert('Registration successful! Please login.');</script>";
+            header("location: login_register.php?message=success&type=successregister");
         } else {
-            echo "<script>alert('Registration failed. Please try again.');</script>";
+            header("location: login_register.php?message=error&type=errorregister");
         }
     }
 }
@@ -66,6 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style.css">
     <!-- favicon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="body-fixed">
@@ -74,16 +76,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         body {
             background-image: url('assets/images/background-blur.jpg');
             background-size: cover; /* memastikan gambar memenuhi seluruh area */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .body-fixed {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body, html {
+            overflow-x: visible;
         }
     </style>
 
     <div class="wrapper">
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="#" method="POST">
+            <form action="" method="POST">
                 <div class="input-box">
                     <span class="icon"><i class="fa-regular fa-envelope"></i></span>
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" required oninvalid="this.setCustomValidity('Please enter your email 💌');" 
+                    onchange="try{setCustomValidity('')}catch(e){};" x-moz-errormessage="Please enter your email 💌">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
@@ -91,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
-                <button type="submit" name="btnLogin" class="btn">Login</button>
+                <button type="submit" name="btnLogin" class="btn btnLogin">Login</button>
                 <div class="login-register">
                     <p>Didn't have an account? <a href="javascript:void(0)" class="register-link">Register</a></p>
                 </div>
@@ -100,10 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="form-box register">
             <h2>Registration</h2>
-            <form action="#" method="POST">
+            <form action="" method="POST">
                 <div class="input-box">
                     <span class="icon"><i class="fa-regular fa-at"></i></span>
-                    <input type="text" name="username" required>
+                    <input type="text" name="username" required oninvalid="this.setCustomValidity('Please enter your username 💗');" 
+                    onchange="try{setCustomValidity('')}catch(e){};" x-moz-errormessage="Please enter your username 💗">
                     <label>Username</label>
                 </div>
                 <div class="input-box">
@@ -126,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
-                <button type="submit" name="btnRegister" class="btn">Register</button>
+                <button type="submit" name="btnRegister" class="btn btnRegister">Register</button>
                 <div class="login-register">
                     <p>Already have an account? <a href="javascript:void(0)" class="login-link">Login</a></p>
                 </div>
@@ -135,6 +155,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Tampilkan SweetAlert berdasarkan pesan success
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        const type = urlParams.get('type');
 
+        if (message === 'error') {
+            if (type === 'errorlogin') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login failed',
+                    text: 'Please check your email or password.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92',
+                }).then(() => {
+                    const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: newURL }, '', newURL);
+                });
+            } else if(type=='errorregister'){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration failed',
+                    text: 'Please try again.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92',
+                }).then(() => {
+                    const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: newURL }, '', newURL);
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error',
+                    text: `There's an error occured.`,
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92',
+                });
+            }
+        }
+        else if (message === 'success') {
+            if (type === 'successregister') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration successful!',
+                    text: 'Please login again to enter your account.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92',
+                });
+            }
+        }
+    });
+    </script>
 </body>
 </html>

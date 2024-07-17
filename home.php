@@ -6,7 +6,11 @@ session_start();
 if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
     header("Location: login_register.php");
     exit();
-} ?>
+} 
+
+// Ambil nama pengguna dari sesi
+$username = $_SESSION['usn_user'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -459,7 +463,7 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
             <div id="popupModalPromo" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
-                    <h2>Welcome to Bloom & Bliss!</h2>
+                    <h2>Welcome <?php echo $username; ?> to Bloom & Bliss!</h2>
                     <p>For every user get 10% discount with this promo code. Copy below!</p>
                     <div class="modal-btn">
                         <button id="promoBtn" value="WELCOMEMB10%" onclick="copyPromo()"><i class="fa-solid fa-copy"></i>   WELCOMEMB10%</button>

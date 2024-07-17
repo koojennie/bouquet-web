@@ -9,7 +9,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    scroll-behavior: smooth;
 }
 
 .body-fixed {
@@ -1665,7 +1664,8 @@ p {
     font-size: 2em;
     color: #e23e67;
     text-align: center;
-    padding: 20px;
+    padding: 5px;
+    margin-top: 20px;
 }
 
 .input-box {
@@ -1723,6 +1723,57 @@ p {
     font-size: 1em;
     color: #fff;
     font-weight: 500;
+    align-content: center !important;
+}
+
+.btn.btnLogin {
+    width: 100%;
+    height: 40px;
+    background: #e23e67;
+    background-image: linear-gradient(135deg, #fba0b6 0%, #e23e67 100%);
+    box-shadow: 0 20px 30px -6px rgba(229, 77, 115, 0.5);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn.btnLogin:hover {
+    transform: translatey(10px);
+    box-shadow: none;
+}
+
+.btn.btnLogin:active {
+    opacity: 0.5;
+}
+
+.btn.btnRegister {
+    width: 100%;
+    height: 40px;
+    background: #e23e67;
+    background-image: linear-gradient(135deg, #fba0b6 0%, #e23e67 100%);
+    box-shadow: 0 20px 30px -6px rgba(229, 77, 115, 0.5);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn.btnRegister:hover {
+    transform: translatey(10px);
+    box-shadow: none;
+}
+
+.btn.btnRegister:active {
+    opacity: 0.5;
 }
 
 .login-register {
@@ -1772,11 +1823,6 @@ p {
     opacity: 1;
     display: flex;
   }
-  
-  .fa-solid:hover {
-    color: #0d0d25;
-    cursor: pointer;
-  }
     
   .profile {
     cursor: pointer;
@@ -1815,7 +1861,97 @@ p {
   }
 
   /* edit sedikit untuk tabel cart.php */
-  .text-h4 {
-    padding: 20px;
+    td a .fa-trash {
+        transition: .5s;
+    }
+    td a .text{
+        opacity: 0;
+        transition: .5s;
+        transform: translateY(5px);
+        font-size: 14px;
+    }
+    td a:hover .fa-trash{
+        transform: translateY(-5px) scale(.5);
+    }
+    td a:hover .text{
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+
+    .btn.btn-success {
+        width: 100%;
+        height: 40px;
+        background: #e23e67;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        color: #fff;
+        font-weight: 500;
+        align-content: center !important;
+        box-shadow: inset 0 0 0 0 #198754;
+        transition: ease-out 0.5s;
+    }
+
+    .btn.btn-success:hover {
+        box-shadow: inset 500px 0 0 0 #198754;
+    }
+
+    .btn.btn-info {
+        width: 100%;
+        height: 40px;
+        background: #e23e67;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 500;
+        align-content: center !important;
+        box-shadow: inset 0 0 0 0 #0dcaf0;
+        transition: ease-out 0.5s;
+    }
+
+    .btn.btn-info:hover {
+        box-shadow: inset 500px 0 0 0 #0dcaf0;
+    }
+
+    /* punya cart.php */
+
+  @keyframes gradientSlide {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
   }
+  
+  .btn.btn-danger.btn-block {
+    background: -webkit-linear-gradient(right, #f7accf, #ff1053, #f7accf, #ff1053);
+    background-size: 200% 200%;
+    background-position: 100% 0;
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    align-content: center !important;
+    transition: 0.4s !important;
+    align-self: stretch;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .btn.btn-danger.btn-block:hover {
+    animation: gradientSlide 1.5s forwards;
+  }
+  
+
+
 

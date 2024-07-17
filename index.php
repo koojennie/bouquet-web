@@ -226,7 +226,7 @@ session_start();
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Summer Sea</h3>
-                                            <p>All the colors give the feeling of joy and excitement</p>
+                                            <p>All the colors give the feeling of joy and excitement.</p>
                                         </div>
                                         <div class="dish-info">
                                             <ul>
@@ -410,7 +410,7 @@ session_start();
                                         </div>
                                         <div class="dish-title">
                                             <h3 class="h3-title">Valley of Lilies</h3>
-                                            <p>Expressing sincere emotions & life's significant moments</p>
+                                            <p>Expressing sincere emotions & life's significant moments.</p>
                                         </div>
                                         <div class="dish-info">
                                             <ul>
@@ -755,6 +755,8 @@ session_start();
                     icon: 'success',
                     title: 'Logged out',
                     text: 'You have successfully logged out.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#fb6f92',
                 });
                 <?php unset($_SESSION['logout_success']); ?>
             <?php endif; ?>

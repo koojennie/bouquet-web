@@ -52,6 +52,17 @@ $(document).ready(function ($) {
     var scene = $(".js-parallax-scene").get(0);
     var parallaxInstance = new Parallax(scene);
 
+    // Smooth scrolling to section on click
+    $('.header-menu a[href*="#"], .footer-menu a[href*="#"]').on('click', function(event) {
+        event.preventDefault();
+        
+        var target = $(this.getAttribute('href'));
+        if(target.length) {
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 800);
+        }
+    });
 
 });
 

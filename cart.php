@@ -49,11 +49,11 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                 <button class="menu-toggle"><span></span><span></span></button>
                 <nav class="header-menu">
                   <ul class="menu food-nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#catalog">Catalog</a></li>
-                    <li><a href="#review">Review</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="home.php#home">Home</a></li>
+                    <li><a href="home.php#about">About</a></li>
+                    <li><a href="home.php#catalog">Catalog</a></li>
+                    <li><a href="home.php#review">Review</a></li>
+                    <li><a href="home.php#contact">Contact</a></li>
                   </ul>
                 </nav>
                 <div class="header-right">
@@ -141,14 +141,17 @@ if (!isset($_SESSION['id_user']) || !isset($_SESSION['usn_user'])) {
                     <td><i class="fa-light fa-rupiah-sign"></i>&nbsp;&nbsp;<?= number_format($row['total_price']); ?></td>
                     <td>
                       <a href="javascript:void(0);" class="text-danger lead"
-                        onclick="confirmRemoval('action.php?remove=<?= $row['cart_id'] ?>');"><i class="fa-regular fa-trash"></i></a>
+                        onclick="confirmRemoval('action.php?remove=<?= $row['cart_id'] ?>');">
+                        <i class="fa-regular fa-trash"></i>
+                        <div class="text"><b>Remove Item</b></div>
+                      </a>
                     </td>
                   </tr>
                   <?php $grand_total += $row['total_price']; ?>
                 <?php endwhile; ?>
                 <tr>
                   <td colspan="3">
-                    <a href="home.php#catalog" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Continue
+                    <a href="home.php" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Continue
                       Shopping</a>
                   </td>
                   <td colspan="2"><b>Grand Total</b></td>

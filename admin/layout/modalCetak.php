@@ -33,7 +33,9 @@
               ?>
             </select>
           </div>
-          <button type="submit" class="btn btn-info btn-sm mt-3">OK</button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-info btn-sm mt-3">OK</button>
+          </div>
         </form>
       </div>
     </div>
@@ -74,7 +76,9 @@
               ?>
             </select>
           </div>
-          <button type="submit" class="btn btn-info btn-sm mt-3">OK</button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-info btn-sm mt-3">OK</button>
+          </div>
         </form>
       </div>
     </div>

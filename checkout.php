@@ -95,7 +95,8 @@ $allItems = implode(', ', $items);
             <div class="form-group">
               <h6><b>Your Address</b></h6>
               <textarea name="address" class="form-control" rows="3" cols="10"
-                placeholder="Enter Delivery Address Here..."></textarea>
+                placeholder="Enter Delivery Address Here..." required oninvalid="this.setCustomValidity('Please enter your address 🏡');" 
+                onchange="try{setCustomValidity('')}catch(e){};" x-moz-errormessage="Please enter your address 🏡"></textarea>
             </div>
             <div class="form-group mt-3">
               <h6><b>Payment Method</b></h6>

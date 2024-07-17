@@ -4567,6 +4567,7 @@ fieldset:disabled .btn {
     border-radius: .25rem;
     border-radius: 10px;
     padding: 20px;
+    box-shadow: 0px 0px 25px #fb6f9265;
 }
 
 .card>hr {
