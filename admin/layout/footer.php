@@ -62,6 +62,7 @@
                 Swal.fire({
                     title: 'Success!',
                     icon: 'success',
+                    text: 'User berhasil ditambahkan',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#fb6f92'
                 }).then(() => {
@@ -69,7 +70,7 @@
                     window.history.replaceState({ path: newURL }, '', newURL);
                 });
             } else if(type=='updateuser'){
-
+                
             }
         }
 
@@ -91,11 +92,11 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     let url = "";
-                    if (type === "product") {
+                    if (type === "Produk") {
                         url = "action/deleteProductAction.php";
-                    } else if (type === "user") {
+                    } else if (type === "User") {
                         url = "action/deleteUserAction.php";
-                    } else if (type === "order") {
+                    } else if (type === "Order") {
                         url = "action/deleteOrderAction.php";
                     }
 
@@ -137,7 +138,7 @@
             });
         });
 
-
+        
     });
 </script>
 

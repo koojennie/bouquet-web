@@ -48,7 +48,7 @@ include ('layout/header.php');
                                     </div>
                                     <div class="form-group">
                                         <label for="pwUser">Password</label>
-                                        <input type="text" class="form-control" id="pwUser" value="" 
+                                        <input type="password" class="form-control" id="pwUser" value="" 
                                             placeholder="Enter password" name="pw_user" required>
                                     </div>
                                 </div>

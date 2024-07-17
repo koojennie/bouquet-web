@@ -7,7 +7,7 @@
       <div class="modal-body">
         <form action="report/orderReportPerMonth.php" target="_blank" method="POST">
           <div class="form-group">
-            <label for="">PILIH BULAN</label>
+            <label for="">Pilih Bulan</label>
             <select name="month" class="form-select">
               <option value="12"> Desember </option>
               <option value="11"> November </option>
@@ -24,15 +24,15 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="">PILIH TAHUN</label>
+            <label for="">Pilih Tahun</label>
+            <select name="year" class="form-select">
+              <?php
+              for ($i = substr(date("d-m-Y"), 6, 4); $i > substr(date("d-m-Y"), 6, 4) - 5; $i--) { ?>
+                <option value="<?= $i ?>"> <?= $i ?> </option>
+              <?php }
+              ?>
+            </select>
           </div>
-          <select name="year" class="form-select">
-            <?php
-            for ($i = substr(date("d-m-Y"), 6, 4); $i > substr(date("d-m-Y"), 6, 4) - 5; $i--) { ?>
-              <option value="<?= $i ?>"> <?= $i ?> </option>
-            <?php }
-            ?>
-          </select>
           <button type="submit" class="btn btn-info btn-sm mt-3">OK</button>
         </form>
       </div>
@@ -48,7 +48,7 @@
       <div class="modal-body">
         <form action="report/laporanReportPerMonth.php" target="_blank" method="POST">
           <div class="form-group">
-            <label for="">PILIH BULAN</label>
+            <label for="">Pilih Bulan</label>
             <select name="month" class="form-select">
               <option value="12"> Desember </option>
               <option value="11"> November </option>
@@ -65,15 +65,15 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="">PILIH TAHUN</label>
+            <label for="">Pilih Tahun</label>
+            <select name="year" class="form-select">
+              <?php
+              for ($i = substr(date("d-m-Y"), 6, 4); $i > substr(date("d-m-Y"), 6, 4) - 5; $i--) { ?>
+                <option value="<?= $i ?>"> <?= $i ?> </option>
+              <?php }
+              ?>
+            </select>
           </div>
-          <select name="year" class="form-select">
-            <?php
-            for ($i = substr(date("d-m-Y"), 6, 4); $i > substr(date("d-m-Y"), 6, 4) - 5; $i--) { ?>
-              <option value="<?= $i ?>"> <?= $i ?> </option>
-            <?php }
-            ?>
-          </select>
           <button type="submit" class="btn btn-info btn-sm mt-3">OK</button>
         </form>
       </div>

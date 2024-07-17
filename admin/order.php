@@ -102,7 +102,7 @@
                         <button class="btn btn-sm btn-primary btn-round" data-bs-toggle="modal"
                           data-bs-target="#viewDetailOrderid<?= $row['order_id'] ?> "><i class="fas fa-eye"></i></button>
                         <button class="btn btn-sm btn-danger btn-round delete-button"
-                          data-id="<?php echo $row['order_id']; ?>" data-type="order"><i class="fa fa-trash"></i></button>
+                          data-id="<?php echo $row['order_id']; ?>" data-type="Order"><i class="fa fa-trash"></i></button>
                       </td>
                     </tr>
 

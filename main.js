@@ -17,7 +17,7 @@ $(document).ready(function ($) {
                         easing: "ease-in-out",
                     },
                     load: {
-                        filter: ".all, .breakfast, .lunch, .dinner",
+                        filter: ".all, .wedding, .graduation, .birthday",
                     },
                 });
             },
