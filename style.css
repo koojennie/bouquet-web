@@ -1209,10 +1209,12 @@ p {
     background-color: #ff9fb7;
     color: white;
     border-radius: 30px;
+    cursor: copy;
   }
   
   #promoBtn:hover {
     background-color: #fb6f92;
+    cursor: copy;
   }
 
 /* **************** responsiveness ***************** */
