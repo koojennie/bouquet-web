@@ -103,7 +103,7 @@ $user = getUserById($id);
                                         <!-- Kosong untuk tampilan responsif -->
                                     </div>
                                     <div class="col-lg-12 pt-5">
-                                        <button type="submit" class="btn btn-primary">UPDATE</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Update</button>
                                     </div>
                                 </div>
                             </form>
